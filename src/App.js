@@ -2,7 +2,7 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import { SharedLayout } from "./components/SharedLayout/SharedLayout";
 import Home from "./pages/HomePage/HomePage";
-//import { ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
           <Route path="/details" element={null} /> */}
         </Route>
       </Routes>
-      {/* <ToastContainer /> */}
+      <ToastContainer />
     </>
   );
 }
