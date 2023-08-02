@@ -1,4 +1,3 @@
-@import-normalize;
 /* bring in normalize.css styles */
 
 *,
@@ -51,6 +50,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   margin: 0;
+  background-color: #FEFCFF;
+  background-image: url("./images/bg-mobile.png");
+  background-repeat: no-repeat;
+  background-size: cover; 
+
+  @media screen and (min-width: 768px) {      
+    background-image: url("./images/bg-tablet.png");
+  }
+
+  @media screen and (min-width: 1280px) {
+    background-image: url("./images/bg-desktop.png");
+  }
 }
 
 code {

@@ -11,9 +11,6 @@ export const SearchBar = ({ inputValue, onSubmit, onChange }) => {
       <Input
         type="text"
         autoComplete="off"
-        pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-        title="May contain only letters, apostrophe, dash and spaces."
-        required
         autoFocus
         placeholder="Search by keywords"
         onChange={onChange}

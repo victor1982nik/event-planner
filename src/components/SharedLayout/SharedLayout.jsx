@@ -3,9 +3,9 @@ import { Outlet } from "react-router-dom";
 import {
   Link,
   Header,
-  Wrapper,
   Container,
   SearcBarWrapper,
+  Lang,
 } from "./SharedLayout.styled";
 import { SearchBar } from "../SearchBar/SearchBar";
 
@@ -14,12 +14,11 @@ export const SharedLayout = () => {
     <>
       <Header>
         <Container>
-          <Wrapper>
-            <Link to="/" end>
-              Event Planner
-            </Link>
-            <div>En</div>
-          </Wrapper>
+          <Link to="/" end>
+            Event Planner
+          </Link>
+          <Lang>EN</Lang>
+
           <SearcBarWrapper>
             <SearchBar />
           </SearcBarWrapper>

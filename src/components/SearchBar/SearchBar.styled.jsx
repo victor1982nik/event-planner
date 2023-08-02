@@ -4,7 +4,8 @@ export const Input = styled.input`
   display: inline-block;
   width: 100%;
   font: inherit;
-  font-size: 20px;
+  font-size: 14px;
+  font-weight: 300;
   border: none;
   outline: none;
   padding-left: 4px;
@@ -26,7 +27,7 @@ export const Button = styled.button`
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   outline: none;
-  color: #ccc;
+  color: #7b61ff;
 
   &:hover {
     opacity: 1;
