@@ -19,7 +19,6 @@ export const Container = styled.div`
   width: ${(p) => p.theme.breakpoints.mobile.width};
 
   @media ${(p) => p.theme.breakpoints.tablet.media} {
-    padding-left: 40px;
     padding: 26px 40px 18px 40px;
     width: ${(p) => p.theme.breakpoints.tablet.width};
   }
