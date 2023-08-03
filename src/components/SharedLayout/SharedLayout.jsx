@@ -24,12 +24,10 @@ export const SharedLayout = () => {
           </SearcBarWrapper>
         </Container>
       </Header>
-      <Container>
-        {/* <Suspense fallback={<div>Loading page...</div>}>
+      {/* <Suspense fallback={<div>Loading page...</div>}>
           <Outlet />
         </Suspense> */}
-        <Outlet />
-      </Container>
+      <Outlet />
     </>
   );
 };

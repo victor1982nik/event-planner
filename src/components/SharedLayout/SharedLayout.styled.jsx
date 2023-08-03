@@ -23,7 +23,7 @@ export const Container = styled.div`
     width: ${(p) => p.theme.breakpoints.tablet.width};
   }
   @media ${(p) => p.theme.breakpoints.desktop.media} {
-    padding: 22px 80px;
+    padding: 22px 0;
     width: ${(p) => p.theme.breakpoints.desktop.width};
   }
 `;
