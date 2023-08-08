@@ -1,20 +1,19 @@
 import { BiArrowBack } from "react-icons/bi";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 
 const StyledLink = styled(Link)`
   display: inline-flex;
   align-items: center;
   gap: 4px;
   padding: 8px 0;
-  color: black;
+  color: #7b61ff;
   text-decoration: none;
   font-weight: 500;
-  text-transform: uppercase;
 
-  :hover {
-    color: orangered;
-  }
+  // :hover {
+  //   color: orangered;
+  // }
 `;
 
 export const BackLink = ({ to, children }) => {

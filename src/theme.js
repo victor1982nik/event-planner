@@ -55,7 +55,7 @@ export const theme = {
     lx: "36px",
     xl: "64px",
   },
-  fontweights: {
+  fontWeights: {
     regular: 400,
     medium: 500,
     semiBold: 600,
@@ -67,6 +67,7 @@ export const theme = {
   },
   radii: {
     round: "50%",
+    tiny: "4px",
     small: "8px",
     medium: "10px",
     large: "12px",

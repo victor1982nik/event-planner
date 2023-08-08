@@ -13,7 +13,7 @@ export const events = [
     name: "Galery Opening",
     description:
       "Discover an enchanting evening celebrating the world of art at our exclusive gallery opening.",
-    category: "art",
+    category: "Art",
     priority: "high",
     place: "Kyiv",
     date: "12.07",
@@ -25,7 +25,7 @@ export const events = [
     name: "Innovation Summit",
     description:
       "Engage in a thought-provoking journey of knowledge and collaboration at our Innovation Summit. ",
-    category: "conference",
+    category: "Conference",
     priority: "medium",
     place: "Kyiv",
     date: "12.07",
@@ -37,7 +37,7 @@ export const events = [
     name: "Empower Your Creativity",
     description:
       "Ignite your creativity and nurture your storytelling skills in our immersive Creative Writing Workshop. ",
-    category: "workshop",
+    category: "Workshop",
     priority: "high",
     place: "Kyiv",
     date: "12.07",
@@ -49,7 +49,7 @@ export const events = [
     name: "Summer Soiree",
     description:
       "Embrace the tropical vibes and escape to paradise at our Beach Luau Extravaganza.",
-    category: "party",
+    category: "Party",
     priority: "high",
     place: "Kyiv",
     date: "12.07",
@@ -61,7 +61,7 @@ export const events = [
     name: "Leadership Conference",
     description:
       "Unlock the secrets of effective leadership at our transformative Success Leadership Conference.",
-    category: "business",
+    category: "Business",
     priority: "medium",
     place: "Kyiv",
     date: "12.07",
@@ -73,7 +73,7 @@ export const events = [
     name: "Tech Startup Showcase",
     description:
       "Witness the future of technology as innovative startups showcase their groundbreaking ideas.",
-    category: "workshop",
+    category: "Workshop",
     priority: "low",
     place: "Kyiv",
     date: "12.07",
@@ -85,7 +85,7 @@ export const events = [
     name: "Acoustic Garden Concert",
     description:
       "Experience the magic of live music amidst the serene beauty of nature at our Acoustic Garden Concert.",
-    category: "music",
+    category: "Music",
     priority: "high",
     place: "Kyiv",
     date: "12.07",
@@ -97,7 +97,7 @@ export const events = [
     name: "Extreme Adventure Race",
     description:
       "Calling all thrill-seekers! Embark on an adrenaline-pumping journey at our Extreme Adventure Race.",
-    category: "sport",
+    category: "Sport",
     priority: "low",
     place: "Kyiv",
     date: "12.07",

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 import {
   Card,
@@ -13,13 +14,23 @@ import {
   Button,
   Link,
 } from "./EventCard.styled";
+import { convertDateFromIso } from "../utils/converDateFromIso";
 
 export const EventCard = ({ event }) => {
   const [color, setColor] = useState(null);
   const [showMore, setShowMore] = useState(false);
 
-  const { name, description, category, priority, place, date, time, photo } =
-    event;
+  const {
+    id,
+    name,
+    description,
+    category,
+    priority,
+    place,
+    date,
+    time,
+    photo,
+  } = event;
 
   useEffect(() => {
     switch (priority) {
@@ -36,7 +47,17 @@ export const EventCard = ({ event }) => {
         return;
     }
   }, [priority]);
-  console.log(showMore);
+
+  const dateConvert = (date) => {
+    const iso8601RegExp = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/;
+    if (iso8601RegExp.test(date)) {
+      date = convertDateFromIso(date);
+    }
+    return date;
+  };
+  const dateConverted = dateConvert(date);
+
+  const location = useLocation();
   return (
     <Card onClick={() => setShowMore(true)}>
       <Filters>
@@ -50,7 +71,7 @@ export const EventCard = ({ event }) => {
 
       <Info>
         <span>
-          {date} at {time}
+          {dateConverted} at {time}
         </span>
         <span>{place}</span>
       </Info>
@@ -59,7 +80,7 @@ export const EventCard = ({ event }) => {
       {/* <Description style={{ paddingBottom: showMore ? "8px" : "16px" }}> */}
       <Description>{description}</Description>
       {showMore && (
-        <Link to={null}>
+        <Link to={`/details/${id}`} state={{ from: location }}>
           <Button type="button">More Info</Button>
         </Link>
       )}

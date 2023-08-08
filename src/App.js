@@ -15,7 +15,7 @@ function App() {
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<Home />} />
           <Route path="/create" element={<CreateEvent />} />
-          <Route path="/details" element={<EventPage />} />
+          <Route path="/details/:id" element={<EventPage />} />
         </Route>
       </Routes>
       <ToastContainer />
