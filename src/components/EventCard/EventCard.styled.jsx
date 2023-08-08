@@ -58,7 +58,7 @@ export const Priority = styled.span`
   border-radius: 8px;
 
   background-color: white;
-  color: "#7B61FF";
+  color: #7b61ff;
 `;
 
 export const ImageContainer = styled.div`
@@ -112,7 +112,7 @@ export const Info = styled.div`
 export const Title = styled.h2`
   padding: 16px 16px 8px 16px;
 
-  color: "#1C1B1F";
+  color: #1c1b1f;
   font-size: 16px;
   font-weight: 500;
   line-height: 1.5;
@@ -121,7 +121,7 @@ export const Title = styled.h2`
 export const Description = styled.p`
   padding: 8px 16px 16px 16px;
 
-  color: "#49454F";
+  color: #49454f;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.42;
@@ -138,7 +138,7 @@ export const Button = styled.button`
   padding: 10px 24px;
 
   color: white;
-  background-color: "#7B61FF";
+  background-color: #7b61ff;
   border-radius: 8px;
 
   font-size: 14px;
@@ -154,7 +154,7 @@ export const Button = styled.button`
 
   &:hover,
   &:focus {
-    background-color: "#6243FF";
+    background-color: #6243ff;
   }
 `;
 
