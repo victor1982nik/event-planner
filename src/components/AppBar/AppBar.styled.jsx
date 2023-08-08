@@ -44,3 +44,10 @@ export const BtnWrapper = styled.div`
     margin-bottom: 0;
   }
 `;
+
+export const StyledWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 24px;
+`;

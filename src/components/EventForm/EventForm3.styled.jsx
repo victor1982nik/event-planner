@@ -2,23 +2,42 @@ import styled from "@emotion/styled";
 import { Field } from "formik";
 
 export const StyledForm = styled.div`
-  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  width: 272px;
+  margin: 24px auto;
   padding: 40px 16px;
-  text-align: left;
-  width: 100%;
-  background-color: white;
+
   border-radius: 8px;
-  box-shadow: rgba(166, 141, 174, 0.28) 2px 4px 9px 0px;
+  background: white;
+  box-shadow: 2px 4px 9px 0px rgba(166, 141, 174, 0.28);
 
   @media screen and (min-width: 768px) {
-    padding: 40px 24px 136px;
-    display: grid;
-    grid-template-columns: auto auto;
-    gap: 24px;
+    width: 688px;
+    padding: 40px 24px;
   }
+
   @media screen and (min-width: 1280px) {
-    padding: 40px 40px 170px;
-    grid-template-columns: repeat(3, 1fr);
+    width: 1280px;
+    padding: 40px 40px 54px 40px;
+  }
+`;
+
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @media screen and (min-width: 768px) {
+    flex-wrap: wrap;
+    column-gap: 25px;
+    max-height: 520px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    max-height: 320px;
+    column-gap: 42px;
   }
 `;
 
@@ -73,35 +92,36 @@ export const ErrorText = styled.p`
 `;
 export const Wrapper = styled.div`
   position: relative;
-  margin-bottom: 20px;
 `;
 
 export const Btn = styled.button`
   min-width: 193px;
   padding: 16px 12px;
+  margin-top: 40px;
+
   border: none;
   border-radius: ${(p) => p.theme.radii.small};
-  background-color: rgb(123, 97, 255);
+  background-color: #7b61ff;
+  color: white;
+  box-shadow: 2px 4px 9px 0px rgba(166, 141, 174, 0.28);
+
   font-weight: ${(p) => p.theme.fontWeights.medium};
   line-height: 1.5;
   font-size: ${(p) => p.theme.fontSizes.m};
   font-family: inherit;
-  color: white;
+
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
 
-  &:hover {
-    background-color: rgb(98, 67, 255);
-  }
-
   @media screen and (min-width: 768px) {
-    position: absolute;
-    right: 24px;
-    bottom: 40px;
+    align-self: flex-end;
   }
 
   @media screen and (min-width: 1280px) {
-    right: 40px;
-    bottom: 54px;
+    margin-top: 60px;
+  }
+
+  &:hover {
+    background-color: #6243ff;
   }
 `;
 

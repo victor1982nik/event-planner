@@ -10,6 +10,7 @@ import { toast } from "react-toastify";
 
 import {
   StyledForm,
+  Container,
   Input,
   Textarea,
   Label,
@@ -75,7 +76,7 @@ function EventForm() {
     >
       <Form autoComplete="off">
         <StyledForm>
-          <>
+          <Container>
             <Wrapper>
               <Label htmlFor="name">Title</Label>
               <Input placeholder="Input" name="name" />
@@ -150,7 +151,7 @@ function EventForm() {
               </Field>
               <FormError name="priority" />
             </Wrapper>
-          </>
+          </Container>
 
           <Btn type="submit">Add event</Btn>
         </StyledForm>

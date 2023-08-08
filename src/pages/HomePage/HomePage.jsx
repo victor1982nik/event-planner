@@ -9,6 +9,7 @@ import { API } from "../../api";
 const Home = () => {
   const [events, setEvents] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  //const [filter, setFilter] = useState("Category");
   const isMobile = useMedia(theme.breakpoints.mobile.media);
 
   useEffect(() => {
