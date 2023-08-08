@@ -1,8 +1,5 @@
 import styled from "@emotion/styled";
 
-//import { MdArrowUpward } from "react-icons/md";
-//export const Arrow = styled(MdArrowUpward)``;
-
 export const BtnText = styled.span`
   display: none;
 
