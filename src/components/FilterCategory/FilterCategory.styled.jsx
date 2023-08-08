@@ -10,14 +10,14 @@ export const Container = styled.div`
 export const FilterContainer = styled.div`
   position: relative;
 
-  @media screen and (min-width: 768px) {
+  @media ${(p) => p.theme.breakpoints.tablet.mediaFrom} {
     min-width: 148px;
   }
 `;
 export const Wrapper = styled.div`
   position: relative;
 
-  @media screen and (min-width: 768px) {
+  @media ${(p) => p.theme.breakpoints.tablet.mediaFrom} {
     min-width: 148px;
   }
   ${(props) =>
@@ -31,15 +31,13 @@ export const Wrapper = styled.div`
 `;
 
 export const Button = styled.button`
-  cursor: pointer;
-
   padding: 16px;
 
-  border: none;
-  border-radius: 8px;
-  background-color: white;
+  border: ${(p) => p.theme.borders.none};
+  border-radius: ${(p) => p.theme.radii.small};
+  background-color: ${(p) => p.theme.colors.whiteText};
   box-shadow: 2px 4px 9px 0px rgba(166, 141, 174, 0.28);
-  color: purple;
+  color: ${(p) => p.theme.colors.button};
 
   display: flex;
   align-items: center;
@@ -49,10 +47,10 @@ export const Button = styled.button`
   transition: color 350ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
-    color: black;
+    color: ${(p) => p.theme.colors.bar};
   }
 
-  @media screen and (min-width: 768px) {
+  @media ${(p) => p.theme.breakpoints.tablet.mediaFrom} {
     width: 100%;
   }
 
@@ -67,10 +65,10 @@ export const Button = styled.button`
 export const BtnText = styled.span`
   display: none;
 
-  @media screen and (min-width: 768px) {
+  @media ${(p) => p.theme.breakpoints.tablet.mediaFrom} {
     display: inline;
-    font-size: 16px;
-    font-weight: 500;
+    font-size: ${(p) => p.theme.fontSizes.m};
+    font-weight: ${(p) => p.theme.fontWeights.medium};
     line-height: normal;
   }
 
@@ -78,8 +76,8 @@ export const BtnText = styled.span`
     props.showCategory &&
     `  
     display: inline;
-    font-size: 16px;
-    font-weight: 500;
+    font-size: ${(p) => p.theme.fontSizes.m};
+    font-weight: ${(p) => p.theme.fontWeights.medium};
     line-height: normal;  
     `};
 `;
@@ -95,9 +93,9 @@ export const List = styled.ul`
   flex-direction: column;
 
   width: 100%;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-  background-color: white;
+  border-bottom-left-radius: ${(p) => p.theme.radii.small};
+  border-bottom-right-radius: ${(p) => p.theme.radii.small};
+  background-color: ${(p) => p.theme.colors.whiteText};
 
   box-shadow: 2px 4px 9px 0px rgba(166, 141, 174, 0.28);
 
@@ -119,15 +117,17 @@ export const Option = styled.button`
   width: 100%;
   padding: 8px 24px;
 
-  font-size: 14px;
-  font-weight: 400;
+  font-size: ${(p) => p.theme.fontSizes.s};
+  font-weight: ${(p) => p.theme.fontWeights.regular};
   line-height: 1;
-  color: light-gray;
+  color: ${(p) => p.theme.colors.menu};
 
-  border-bottom: 1px solid light-gray;
+  border-bottom: ${(p) => p.theme.borders.normal};
+  ${(p) => p.theme.colors.menu};
 
   &:first-of-type {
-    border-top: 1px solid light-gray;
+    border-top: ${(p) => p.theme.borders.normal};
+    ${(p) => p.theme.colors.menu};
   }
 
   &:last-of-type {
@@ -139,7 +139,7 @@ export const Option = styled.button`
 
   &:hover,
   &:focus {
-    color: purple;
-    border-bottom-color: purple;
+    color: ${(p) => p.theme.colors.buttonAccent};
+    border-bottom-color: ${(p) => p.theme.colors.buttonAccent};
   }
 `;

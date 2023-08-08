@@ -18,7 +18,7 @@ const Home = () => {
         setIsLoading(true);
         const res = await API.fetchEvents();
         setEvents(res);
-        console.log(res);
+        //console.log(res);
       } catch (error) {
         console.log(error.message);
       } finally {

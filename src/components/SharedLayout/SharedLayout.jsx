@@ -17,7 +17,7 @@ export const SharedLayout = () => {
           <Link to="/" end>
             Event Planner
           </Link>
-          <Lang>EN</Lang>
+          <Lang>UK</Lang>
 
           <SearcBarWrapper>
             <SearchBar />

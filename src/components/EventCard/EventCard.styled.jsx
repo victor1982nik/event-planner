@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
 export const Card = styled.div`
@@ -24,7 +24,7 @@ export const Card = styled.div`
 
   &:hover {
     box-shadow: -2.5777px 6.87386px 20.6216px rgba(0, 0, 0, 0.63);
-    transform: scale(1.03);
+    transform: scale(1.05);
   }
 `;
 
@@ -32,6 +32,7 @@ export const Filters = styled.div`
   position: absolute;
   top: 12px;
   left: 12px;
+  z-index: 12;
 
   display: flex;
   align-items: center;
@@ -57,10 +58,11 @@ export const Priority = styled.span`
   border-radius: 8px;
 
   background-color: white;
-  color: #7b61ff;
+  color: "#7B61FF";
 `;
 
 export const ImageContainer = styled.div`
+  position: relative;
   width: 271px;
   height: 336px;
   overflow: hidden;
@@ -75,18 +77,22 @@ export const ImageContainer = styled.div`
   @media screen and (min-width: 1280px) {
     width: 302px;
   }
+  transition: height 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+
+  ${Card}:hover &, ${Card}:focus & {
+    height: 280px;
+  }
 `;
 
 export const Image = styled.img`
   width: 100%;
   height: 336px;
-
   object-fit: cover;
 `;
 
 export const Info = styled.div`
   position: absolute;
-  top: 296px;
+  bottom: 0;
   left: 0;
 
   width: 100%;
@@ -97,16 +103,16 @@ export const Info = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  color: #7b61ff;
+  color: "#7B61FF";
   font-size: 14px;
   font-weight: 400;
   line-height: 1.71;
 `;
 
-export const Title = styled.h3`
+export const Title = styled.h2`
   padding: 16px 16px 8px 16px;
 
-  color: #1c1b1f;
+  color: "#1C1B1F";
   font-size: 16px;
   font-weight: 500;
   line-height: 1.5;
@@ -115,26 +121,45 @@ export const Title = styled.h3`
 export const Description = styled.p`
   padding: 8px 16px 16px 16px;
 
-  color: #49454f;
+  color: "#49454F";
   font-size: 14px;
   font-weight: 400;
   line-height: 1.42;
 `;
 
 export const Button = styled.button`
+  visibility: hidden;
+  opacity: 0;
+
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+
   padding: 10px 24px;
+
   color: white;
-  background-color: #7b61ff;
+  background-color: "#7B61FF";
   border-radius: 8px;
-  margin-right: 16px;
+
   font-size: 14px;
   font-weight: 500;
   line-height: 1.42;
+
+  transition: opacity 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  ${Card}:hover &, ${Card}:focus & {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: "#6243FF";
+  }
 `;
 
 export const Link = styled(NavLink)`
   display: flex;
   justify-content: flex-end;
-
   text-decoration: none;
 `;

@@ -56,7 +56,7 @@ export const SelectBody = styled.div`
   padding: 0 16px;
   overflow: hidden;
   border-radius: ${(p) => p.theme.radii.small};
-  background-color: white;
+  background-color: ${(p) => p.theme.colors.whiteText};
   border: none;
   box-shadow: rgba(166, 141, 174, 0.28) 2px 4px 9px 0px;
   z-index: 2;

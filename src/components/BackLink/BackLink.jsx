@@ -7,13 +7,11 @@ const StyledLink = styled(Link)`
   align-items: center;
   gap: 4px;
   padding: 8px 0;
-  color: #7b61ff;
+  color: ${(p) => p.theme.colors.purpleText}
   text-decoration: none;
-  font-weight: 500;
-
-  // :hover {
-  //   color: orangered;
-  // }
+  font-weight: ${(p) => p.theme.fontWeights.medium}
+  font-size: ${(p) => p.theme.fontSizes.s}
+  line-height: normal;
 `;
 
 export const BackLink = ({ to, children }) => {

@@ -80,6 +80,7 @@ function EventForm() {
             <Wrapper>
               <Label htmlFor="name">Title</Label>
               <Input placeholder="Input" name="name" />
+
               <FormError name="name" />
             </Wrapper>
             <Wrapper>
@@ -92,7 +93,7 @@ function EventForm() {
               <FormError name="description" />
             </Wrapper>
             <Wrapper>
-              <Label htmlFor="date">Input date</Label>
+              <Label htmlFor="date">Select date</Label>
               <Field id="date" name="date">
                 {({ field, form, meta }) => (
                   <InputDate
@@ -106,7 +107,7 @@ function EventForm() {
               <FormError name="date" />
             </Wrapper>
             <Wrapper>
-              <Label htmlFor="time">Input time</Label>
+              <Label htmlFor="time">Select time</Label>
               <Input placeholder="12:00" name="time" />
               <FormError name="time" />
             </Wrapper>

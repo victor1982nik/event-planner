@@ -80,6 +80,7 @@ export const Event = ({ event }) => {
           </Info>
           <ButtonWrapper>
             <Button
+              type="button"
               color="#7B61FF"
               backgroundColor="white"
               borderColor="#7B61FF"
@@ -87,6 +88,7 @@ export const Event = ({ event }) => {
               Edit
             </Button>
             <Button
+              type="button"
               color="white"
               backgroundColor="#7B61FF"
               onClick={handleDelete}

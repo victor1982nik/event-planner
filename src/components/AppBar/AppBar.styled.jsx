@@ -7,10 +7,10 @@ export const AddBtn = styled.button`
   gap: 16px;
 
   padding: 16px;
-  background: #7b61ff;
-  border-radius: 8px;
+  background: ${(p) => p.theme.colors.button};
+  border-radius: ${(p) => p.theme.radii.small};
   box-shadow: 2px 4px 9px 0px rgba(166, 141, 174, 0.28);
-  color: white;
+  color: ${(p) => p.theme.colors.whiteText};
 
   @media ${(p) => p.theme.breakpoints.tablet.mediaFrom} {
     padding: 16px 12px;
@@ -21,8 +21,8 @@ export const TextAddBtn = styled.span`
   display: none;
   @media ${(p) => p.theme.breakpoints.tablet.mediaFrom} {
     display: inline;
-    font-size: 16px;
-    font-weight: 500;
+    font-size: ${(p) => p.theme.fontSizes.m};
+    font-weight: ${(p) => p.theme.fontWeights.medium};
     line-height: normal;
   }
 `;

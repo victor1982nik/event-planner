@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { BackLink } from "../../components/BackLink/BackLink";
 import EventForm from "../../components/EventForm/EventForm3";
-import { Main } from "../HomePage/HomePage.styled";
+import { Main } from "../EventPage/EventPage.styled";
 import { Title } from "./CreateEventPage.styled";
 
 const CreateEvent = () => {

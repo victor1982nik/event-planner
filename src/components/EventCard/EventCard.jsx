@@ -18,7 +18,6 @@ import { convertDateFromIso } from "../utils/converDateFromIso";
 
 export const EventCard = ({ event }) => {
   const [color, setColor] = useState(null);
-  const [showMore, setShowMore] = useState(false);
 
   const {
     id,
@@ -59,31 +58,29 @@ export const EventCard = ({ event }) => {
 
   const location = useLocation();
   return (
-    <Card onClick={() => setShowMore(true)}>
+    <Card>
       <Filters>
         <Category>{category}</Category>
         <Priority style={{ color: color }}>{priority}</Priority>
       </Filters>
 
-      <ImageContainer style={{ height: showMore ? "280px" : "336px" }}>
+      <ImageContainer>
         <Image src={photo} alt={name} />
+        <Info>
+          <span>
+            {dateConverted} at {time}
+          </span>
+          <span>{place}</span>
+        </Info>
       </ImageContainer>
-
-      <Info>
-        <span>
-          {dateConverted} at {time}
-        </span>
-        <span>{place}</span>
-      </Info>
 
       <Title>{name}</Title>
       {/* <Description style={{ paddingBottom: showMore ? "8px" : "16px" }}> */}
       <Description>{description}</Description>
-      {showMore && (
-        <Link to={`/details/${id}`} state={{ from: location }}>
-          <Button type="button">More Info</Button>
-        </Link>
-      )}
+
+      <Link to={`/details/${id}`} state={{ from: location }}>
+        <Button type="button">More Info</Button>
+      </Link>
     </Card>
   );
 };

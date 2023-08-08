@@ -30,9 +30,10 @@ export const Input = styled.div`
   width: 100%;
   padding: 12px 16px;
   height: 56px;
+
   outline: none;
   border-radius: ${(p) => p.theme.radii.small};
-  border: 1px solid rgb(172, 167, 195);
+  border: 1px solid ${(p) => p.theme.colors.borderInput};
   color: ${(p) => p.theme.colors.inputText};
   font-size: ${(p) => p.theme.fontSizes.m};
   font-family: inherit;
@@ -54,8 +55,9 @@ export const Popup = styled.div`
   top: 100%;
   padding: 20px;
   overflow: hidden;
+
   border-radius: ${(p) => p.theme.radii.small};
-  background-color: white;
+  background-color: ${(p) => p.theme.colors.whiteText};
   border: none;
   box-shadow: rgba(166, 141, 174, 0.28) 2px 4px 9px 0px;
   z-index: 2;
@@ -71,9 +73,9 @@ export const BtnWrap = styled.div`
 export const BtnCancel = styled.button`
   padding: 8px 16px;
   cursor: pointer;
-  border: 1px solid rgb(123, 97, 255);
+  border: 1px solid ${(p) => p.theme.colors.borderInputAccent};;
   border-radius: ${(p) => p.theme.radii.tiny};
-  background-color: white;
+  background-color: ${(p) => p.theme.colors.whiteText};
   color: ${(p) => p.theme.colors.purpleText};
   font-size: ${(p) => p.theme.fontSizes.xs};
   font-weight: ${(p) => p.theme.fontWeights.medium};
@@ -95,7 +97,7 @@ export const BtnChoose = styled.button`
   cursor: pointer;
   border-radius: ${(p) => p.theme.radii.tiny};
   background-color: ${(p) => p.theme.colors.button};
-  color: white;
+  color: ${(p) => p.theme.colors.whiteText};
   font-size: ${(p) => p.theme.fontSizes.xs};
   font-weight: ${(p) => p.theme.fontWeights.medium};
   line-height: 1.33;

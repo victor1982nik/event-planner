@@ -9,16 +9,16 @@ export const StyledForm = styled.div`
   margin: 24px auto;
   padding: 40px 16px;
 
-  border-radius: 8px;
-  background: white;
+  border-radius: ${(p) => p.theme.radii.small} 
+  background: ${(p) => p.theme.colors.whiteText};
   box-shadow: 2px 4px 9px 0px rgba(166, 141, 174, 0.28);
 
-  @media screen and (min-width: 768px) {
+  @media ${(p) => p.theme.breakpoints.tablet.mediaFrom} {
     width: 688px;
     padding: 40px 24px;
   }
 
-  @media screen and (min-width: 1280px) {
+  @media ${(p) => p.theme.breakpoints.desktop.media} {
     width: 1280px;
     padding: 40px 40px 54px 40px;
   }
@@ -29,25 +29,26 @@ export const Container = styled.div`
   flex-direction: column;
   gap: 20px;
 
-  @media screen and (min-width: 768px) {
+  @media ${(p) => p.theme.breakpoints.tablet.mediaFrom} {
     flex-wrap: wrap;
     column-gap: 25px;
     max-height: 520px;
   }
 
-  @media screen and (min-width: 1280px) {
+  @media ${(p) => p.theme.breakpoints.desktop.media} {
     max-height: 320px;
     column-gap: 42px;
   }
 `;
 
 export const Label = styled.label`
-  color: rgb(123, 97, 255);
-  font-size: 16px;
+  display: inline-block;
+
+  color: ${(p) => p.theme.colors.purpleText};
+  font-size: ${(p) => p.theme.fontSizes.m} 
   line-height: 1;
   letter-spacing: 0.04em;
-  margin-bottom: 8px;
-  display: inline-block;
+  margin-bottom: 8px;  
 `;
 
 export const Input = styled(Field)`
@@ -55,11 +56,13 @@ export const Input = styled(Field)`
   width: 100%;
   padding: 12px 16px;
   height: 56px;
+
   outline: none;
-  border-radius: 8px;
-  border: 1px solid rgb(172, 167, 195);
+  border-radius: ${(p) => p.theme.radii.small} 
+  border: 1px solid ${(p) => p.theme.colors.borderInput};
   color: rgb(63, 63, 63);
-  font-size: 16px;
+
+  font-size: ${(p) => p.theme.fontSizes.m} 
   font-family: inherit;
   line-height: 1.5;
   appearance: none;
@@ -67,7 +70,7 @@ export const Input = styled(Field)`
   -webkit-appearance: none;
 
   &:focus {
-    border-color: rgb(123, 97, 255);
+    border-color: ${(p) => p.theme.colors.accentText};
   }
 
   &::placeholder {
@@ -85,8 +88,8 @@ export const Textarea = styled(Input)`
 
 export const ErrorText = styled.p`
   position: absolute;
-  color: rgb(255, 43, 119);
-  font-size: 12px;
+  color: ${(p) => p.theme.colors.borderInputFail};
+  font-size: ${(p) => p.theme.fontSizes.xs} 
   right: 19px;
   margin-top: 4px;
 `;
@@ -99,10 +102,10 @@ export const Btn = styled.button`
   padding: 16px 12px;
   margin-top: 40px;
 
-  border: none;
+  border: ${(p) => p.theme.borders.none};
   border-radius: ${(p) => p.theme.radii.small};
-  background-color: #7b61ff;
-  color: white;
+  background-color: ${(p) => p.theme.colors.button};
+  color: ${(p) => p.theme.colors.whiteText};
   box-shadow: 2px 4px 9px 0px rgba(166, 141, 174, 0.28);
 
   font-weight: ${(p) => p.theme.fontWeights.medium};
@@ -112,16 +115,16 @@ export const Btn = styled.button`
 
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
 
-  @media screen and (min-width: 768px) {
+  @media ${(p) => p.theme.breakpoints.tablet.mediaFrom} {
     align-self: flex-end;
   }
 
-  @media screen and (min-width: 1280px) {
+  @media ${(p) => p.theme.breakpoints.desktop.media} {
     margin-top: 60px;
   }
 
   &:hover {
-    background-color: #6243ff;
+    background-color: ${(p) => p.theme.colors.buttonAccent};
   }
 `;
 

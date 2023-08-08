@@ -1,7 +1,6 @@
 import { useLocation, useParams } from "react-router-dom";
 import { BackLink } from "../../components/BackLink/BackLink";
-import { Main } from "../HomePage/HomePage.styled";
-//import { events } from "../../assets/data/data";
+import { Main } from "./EventPage.styled";
 import { Event } from "../../components/Event/Event";
 import { LinkText } from "./EventPage.styled";
 import { API } from "../../api";

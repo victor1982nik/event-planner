@@ -17,13 +17,12 @@ export const Main = styled.main`
 `;
 
 export const Title = styled.h1`
-  font-size: 32px;
-  color: #3f3f3f;
+  color: ${(p) => p.theme.colors.mainTitle}
   font-size: 24px;
   font-weight: 600;
-  line-height: normal;
 
-  @media screen and (max-width: 767px) {
+  @media ${(p) => p.theme.breakpoints.mobile.media}  {
+    line-height: normal;
     position: absolute;
     width: 1px;
     height: 1px;
@@ -33,6 +32,10 @@ export const Title = styled.h1`
     white-space: nowrap;
     clip: rect(0 0 0 0);
     overflow: hidden;
+  }
+
+  @media ${(p) => p.theme.breakpoints.tablet.mediaFrom} {
+    font-size: ${(p) => p.theme.fontSizes.l};
   }
 `;
 
@@ -53,12 +56,12 @@ export const CardList = styled.ul`
   grid-template-columns: repeat(1, 1fr);
   grid-gap: 24px;
 
-  @media screen and (min-width: 768px) {
+  @media ${(p) => p.theme.breakpoints.tablet.mediaFrom} {
     grid-template-columns: repeat(2, 1fr);
     margin-top: 24px;
   }
 
-  @media screen and (min-width: 1280px) {
+  @media ${(p) => p.theme.breakpoints.desktop.media} {
     grid-template-columns: repeat(4, 1fr);
   }
 `;
