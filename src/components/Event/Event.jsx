@@ -14,7 +14,7 @@ import {
   Button,
 } from "./Event.styled";
 import { API } from "../../api";
-import { convertDateFromIso } from "../utils/converDateFromIso";
+import { convertDateFromIso } from "../../utils/converDateFromIso";
 
 export const Event = ({ event }) => {
   const navigate = useNavigate();
@@ -82,15 +82,15 @@ export const Event = ({ event }) => {
             <Button
               type="button"
               color="#7B61FF"
-              backgroundColor="white"
-              borderColor="#7B61FF"
+              $backgroundColor="white"
+              $borderColor="#7B61FF"
             >
               Edit
             </Button>
             <Button
               type="button"
               color="white"
-              backgroundColor="#7B61FF"
+              $backgroundColor="#7B61FF"
               onClick={handleDelete}
             >
               Delete event

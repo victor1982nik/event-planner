@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from "styled-components";
 import { ChevronSmallDown, ChevronSmallUp } from "react-swm-icon-pack";
 
 export const Select = styled.div`

@@ -1,6 +1,6 @@
 import { BiArrowBack } from "react-icons/bi";
 import { Link } from "react-router-dom";
-import styled from "@emotion/styled";
+import styled from "styled-components";
 
 const StyledLink = styled(Link)`
   display: inline-flex;

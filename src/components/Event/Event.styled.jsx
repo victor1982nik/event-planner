@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from "styled-components";
 
 export const Wrapper = styled.section`
   margin-top: 25px;
@@ -92,9 +92,9 @@ export const ButtonWrapper = styled.div`
 
 export const Button = styled.button`
   width: 108px;
-  background-color: ${(props) => props.backgroundColor};
+  background-color: ${(props) => props.$backgroundColor};
   color: ${(props) => props.color};
-  border: 1px solid ${(props) => props.borderColor || "#7B61FF"};
+  border: 1px solid ${(props) => props.$borderColor || "#7B61FF"};
   padding: 8px 16px;
   border-radius: ${(p) => p.theme.radii.tiny};
   flex-shrink: 0;

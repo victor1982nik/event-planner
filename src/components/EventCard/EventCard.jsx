@@ -14,7 +14,7 @@ import {
   Button,
   Link,
 } from "./EventCard.styled";
-import { convertDateFromIso } from "../utils/converDateFromIso";
+import { convertDateFromIso } from "../../utils/converDateFromIso";
 
 export const EventCard = ({ event }) => {
   const [color, setColor] = useState(null);

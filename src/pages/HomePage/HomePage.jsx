@@ -1,7 +1,5 @@
 import { AppBar } from "../../components/AppBar/AppBar";
 import { Main, Title, Wrapper, CardList } from "./HomePage.styled";
-import { useMedia } from "react-use";
-import { theme } from "../../theme";
 import { EventCard } from "../../components/EventCard/EventCard";
 import { useState, useEffect } from "react";
 import { API } from "../../api";
@@ -10,7 +8,6 @@ const Home = () => {
   const [events, setEvents] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   //const [filter, setFilter] = useState("Category");
-  const isMobile = useMedia(theme.breakpoints.mobile.media);
 
   useEffect(() => {
     const getEvents = async () => {
@@ -31,7 +28,7 @@ const Home = () => {
   return (
     <Main>
       <Wrapper>
-        <AppBar isMobile={isMobile} />
+        <AppBar />
         <Title>My events</Title>
       </Wrapper>
       {isLoading && <div>Loading...</div>}

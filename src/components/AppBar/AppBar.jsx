@@ -3,12 +3,15 @@ import { AddBtn, TextAddBtn, BtnWrapper, StyledWrapper } from "./AppBar.styled";
 import { Link, useLocation } from "react-router-dom";
 import { FilterCategory } from "../FilterCategory/FilterCategory";
 import { useState } from "react";
+import { useMedia } from "react-use";
+import { theme } from "../../theme";
 import { Sorting } from "../Sorting/Sorting";
 
-export const AppBar = ({ isMobile }) => {
+export const AppBar = () => {
   const [showCategory, setShowCategory] = useState(false);
   const [showSortingOptions, setShowSortingOptions] = useState(false);
   const location = useLocation();
+  const isMobile = useMedia(theme.breakpoints.mobile.media);
 
   const onCategoryClick = () => {
     setShowCategory((prevState) => !prevState);
@@ -25,13 +28,13 @@ export const AppBar = ({ isMobile }) => {
       <BtnWrapper>
         <StyledWrapper>
           <FilterCategory
-            isMobile={isMobile}
-            showCategory={showCategory}
+            $isMobile={isMobile}
+            $showCategory={showCategory}
             handleCategoryClick={onCategoryClick}
           />
           <Sorting
-            isMobile={isMobile}
-            showSortingOptions={showSortingOptions}
+            $isMobile={isMobile}
+            $showSortingOptions={showSortingOptions}
             handleSortingClick={onSortingClick}
           />
         </StyledWrapper>

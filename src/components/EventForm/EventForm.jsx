@@ -17,7 +17,7 @@ import {
   Btn,
   Wrapper,
   ErrorText,
-} from "./EventForm3.styled";
+} from "./EventForm.styled";
 
 function EventForm() {
   const navigate = useNavigate();
