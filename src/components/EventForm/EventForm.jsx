@@ -60,7 +60,7 @@ function EventForm() {
   });
 
   const handleSubmit = async (values, { resetForm }) => {
-    console.log(values);
+    //console.log(values);
 
     await API.createEvent(values);
     toast.success("A new event has been created!");

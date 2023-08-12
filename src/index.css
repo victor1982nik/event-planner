@@ -1,5 +1,6 @@
 /* bring in normalize.css styles */
-
+@import "normalize.css"; 
+@import url("https://fonts.googleapis.com/css2?family=Alata&family=Poppins:wght@300;400;500;700;800&display=swap");
 *,
 *::before,
 *::after {
@@ -50,13 +51,13 @@ body {
   background-repeat: no-repeat;
   background-size: cover; 
 
-  @media screen and (min-width: 768px) {      
+  /* @media screen and (min-width: 768px) {      
     background-image: url("./assets/images/bg-tablet.png");
   }
 
   @media screen and (min-width: 1280px) {
     background-image: url("./assets/images/bg-desktop.png");
-  }
+  } */
 }
 
 code {

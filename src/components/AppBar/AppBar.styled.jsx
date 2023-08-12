@@ -1,10 +1,13 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-export const AddBtn = styled.button`
+export const NavLink = styled(Link)`
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 16px;
+
+  text-decoration: none;
 
   padding: 16px;
   background: ${(p) => p.theme.colors.button};

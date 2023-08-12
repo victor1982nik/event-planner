@@ -1,11 +1,16 @@
-import { AiOutlinePlus } from "react-icons/ai";
-import { AddBtn, TextAddBtn, BtnWrapper, StyledWrapper } from "./AppBar.styled";
-import { Link, useLocation } from "react-router-dom";
-import { FilterCategory } from "../FilterCategory/FilterCategory";
+import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import { useMedia } from "react-use";
+import { AiOutlinePlus } from "react-icons/ai";
 import { theme } from "../../theme";
 import { Sorting } from "../Sorting/Sorting";
+import {
+  TextAddBtn,
+  BtnWrapper,
+  StyledWrapper,
+  NavLink,
+} from "./AppBar.styled";
+import { FilterCategory } from "../FilterCategory/FilterCategory";
 
 export const AppBar = () => {
   const [showCategory, setShowCategory] = useState(false);
@@ -39,12 +44,10 @@ export const AppBar = () => {
           />
         </StyledWrapper>
 
-        <Link to="/create" state={{ from: location }}>
-          <AddBtn>
-            <AiOutlinePlus style={{ width: 24, height: 24 }} />
-            <TextAddBtn>{!isMobile && " Add new event"}</TextAddBtn>
-          </AddBtn>
-        </Link>
+        <NavLink to="/create" state={{ from: location }}>
+          <AiOutlinePlus style={{ width: 24, height: 24 }} />
+          <TextAddBtn>{!isMobile && " Add new event"}</TextAddBtn>
+        </NavLink>
       </BtnWrapper>
     </>
   );
