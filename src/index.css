@@ -27,8 +27,7 @@ ol,
 li,
 form {
   margin: 0;
-  padding: 0;
-  padding-left: 0;
+  padding: 0;  
   list-style: none;
 }
 
@@ -38,8 +37,7 @@ img {
   height: auto;
 }
 
-body {
-  line-height: 1.5;
+body {  
   font-style: normal;
   font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -72,7 +70,7 @@ select,
 textarea {
   font-family: inherit;
   font-size: 100%;
-  line-height: 1.15;
+  /* line-height: 1.15; */
   margin: 0;
 }
 

@@ -1,12 +1,12 @@
 import { useNavigate } from "react-router-dom";
-import { Formik, Form, ErrorMessage } from "formik";
+import { Formik, Form, ErrorMessage, Field } from "formik";
 import * as Yup from "yup";
+import { CrossSmall } from "react-swm-icon-pack";
+import { toast } from "react-toastify";
 import { categories, priorities } from "../../assets/options";
-import { Field } from "formik";
 import InputSelect from "./InputSelect/InputSelect";
 import InputDate from "./InputDate/InputDate";
 import { API } from "../../api";
-import { toast } from "react-toastify";
 
 import {
   StyledForm,
@@ -17,13 +17,14 @@ import {
   Btn,
   Wrapper,
   ErrorText,
+  ClearBtn,
 } from "./EventForm.styled";
 
 function EventForm() {
   const navigate = useNavigate();
 
   const initialValues = {
-    name: "",
+    title: "",
     description: "",
     date: "",
     time: "",
@@ -35,15 +36,14 @@ function EventForm() {
 
   const FormError = ({ name }) => {
     return (
-      <ErrorMessage
-        name={name}
-        render={(message) => <ErrorText>{message}</ErrorText>}
-      />
+      <ErrorMessage name={name}>
+        {(message) => <ErrorText>{message}</ErrorText>}
+      </ErrorMessage>
     );
   };
 
   const validationSchema = Yup.object({
-    name: Yup.string()
+    title: Yup.string()
       .required()
       .matches(/^(?! )(?!-)[a-zA-Z\d\s-]+$/, "Invalid input"),
     description: Yup.string().required(),
@@ -74,89 +74,150 @@ function EventForm() {
       initialValues={initialValues}
       validationSchema={validationSchema}
     >
-      <Form autoComplete="off">
-        <StyledForm>
-          <Container>
-            <Wrapper>
-              <Label htmlFor="name">Title</Label>
-              <Input placeholder="Input" name="name" />
-
-              <FormError name="name" />
-            </Wrapper>
-            <Wrapper>
-              <Label htmlFor="description">Description</Label>
-              <Textarea
-                placeholder="Input"
-                component="textarea"
-                name="description"
-              />
-              <FormError name="description" />
-            </Wrapper>
-            <Wrapper>
-              <Label htmlFor="date">Select date</Label>
-              <Field id="date" name="date">
-                {({ field, form, meta }) => (
-                  <InputDate
-                    field={field}
-                    form={form}
-                    meta={meta}
-                    label={"Date"}
+      {({ values, errors, touched, handleChange }) => (
+        <Form autoComplete="off">
+          <StyledForm>
+            <Container>
+              <Wrapper>
+                <Label htmlFor="title">Title</Label>
+                <Input
+                  placeholder="Input"
+                  name="title"
+                  id="title"
+                  $error={errors.title && touched.title}
+                />
+                <ClearBtn
+                  type="button"
+                  onClick={() =>
+                    handleChange({ target: { name: "title", value: "" } })
+                  }
+                >
+                  <CrossSmall
+                    color={
+                      !!errors.title && touched.title ? "#FF2B77" : "#7B61FF"
+                    }
                   />
-                )}
-              </Field>
-              <FormError name="date" />
-            </Wrapper>
-            <Wrapper>
-              <Label htmlFor="time">Select time</Label>
-              <Input placeholder="12:00" name="time" />
-              <FormError name="time" />
-            </Wrapper>
+                </ClearBtn>
 
-            <Wrapper>
-              <Label htmlFor="place">Location</Label>
-              <Input placeholder="Input" name="place" />
-              <FormError name="place" />
-            </Wrapper>
-            <Wrapper>
-              <Label htmlFor="category">Category</Label>
-              <Field name="category">
-                {({ field, form, meta }) => (
-                  <InputSelect
-                    field={field}
-                    form={form}
-                    meta={meta}
-                    label={"Category"}
-                    options={categories}
-                  />
-                )}
-              </Field>
-              <FormError name="category" />
-            </Wrapper>
-            <Wrapper>
-              <Label htmlFor="photo">Add picture</Label>
-              <Input placeholder="Input" name="photo" />
-              <FormError name="photo" />
-            </Wrapper>
-            <Wrapper>
-              <Label htmlFor="priority">Priority</Label>
-              <Field name="priority">
-                {({ field, form, meta }) => (
-                  <InputSelect
-                    field={field}
-                    form={form}
-                    meta={meta}
-                    label={"Priority"}
-                    options={priorities}
-                  />
-                )}
-              </Field>
-              <FormError name="priority" />
-            </Wrapper>
-          </Container>
+                <FormError name="title" />
+              </Wrapper>
+              <Wrapper>
+                <Label htmlFor="description">Description</Label>
+                <Textarea
+                  placeholder="Input"
+                  component="textarea"
+                  name="description"
+                />
+                <ClearBtn
+                  type="button"
+                  onClick={() =>
+                    handleChange({ target: { name: "description", value: "" } })
+                  }
+                >
+                  <CrossSmall color="#7B61FF" />
+                </ClearBtn>
+                <FormError name="description" />
+              </Wrapper>
+              <Wrapper>
+                <Label htmlFor="date">Select date</Label>
+                <Field id="date" name="date">
+                  {({ field, form, meta }) => (
+                    <InputDate
+                      field={field}
+                      form={form}
+                      meta={meta}
+                      label={"Date"}
+                    />
+                  )}
+                </Field>
+                <FormError name="date" />
+              </Wrapper>
+              <Wrapper>
+                <Label htmlFor="time">Select time</Label>
+                <Input placeholder="12:00" name="time" />
+                <FormError name="time" />
+              </Wrapper>
 
-          <Btn type="submit">Add event</Btn>
-        </StyledForm>
-      </Form>
+              <Wrapper>
+                <Label htmlFor="place">Location</Label>
+                <Input
+                  placeholder="Input"
+                  name="place"
+                  id="place"
+                  $error={!!errors.place && touched.place}
+                />
+                <ClearBtn
+                  type="button"
+                  onClick={() =>
+                    handleChange({ target: { name: "title", value: "" } })
+                  }
+                >
+                  <CrossSmall
+                    color={
+                      !!errors.title && touched.title ? "#FF2B77" : "#7B61FF"
+                    }
+                  />
+                </ClearBtn>
+                <FormError name="place" />
+              </Wrapper>
+              <Wrapper>
+                <Label htmlFor="category">Category</Label>
+                <Field name="category">
+                  {({ field, form, meta }) => (
+                    <InputSelect
+                      field={field}
+                      form={form}
+                      meta={meta}
+                      label={"Category"}
+                      options={categories}
+                    />
+                  )}
+                </Field>
+                <FormError name="category" />
+              </Wrapper>
+              <Wrapper>
+                <Label htmlFor="photo">Add picture</Label>
+                <Input
+                  placeholder="Input"
+                  name="photo"
+                  id="photo"
+                  $error={errors.photo && touched.photo}
+                />
+                <ClearBtn
+                  type="button"
+                  onClick={() =>
+                    handleChange({ target: { name: "title", value: "" } })
+                  }
+                >
+                  <CrossSmall
+                    color={
+                      !!errors.title && touched.title ? "#FF2B77" : "#7B61FF"
+                    }
+                  />
+                </ClearBtn>
+                <FormError name="photo" />
+              </Wrapper>
+              <Wrapper>
+                <Label htmlFor="priority">Priority</Label>
+                <Field name="priority">
+                  {({ field, form, meta }) => (
+                    <InputSelect
+                      field={field}
+                      form={form}
+                      meta={meta}
+                      label={"Priority"}
+                      options={priorities}
+                    />
+                  )}
+                </Field>
+                <FormError name="priority" />
+              </Wrapper>
+            </Container>
+
+            <Btn type="submit">Add event</Btn>
+          </StyledForm>
+        </Form>
+      )}
     </Formik>
   );
 }

@@ -9,9 +9,10 @@ export const StyledForm = styled.div`
   margin: 24px auto;
   padding: 40px 16px;
 
-  border-radius: ${(p) => p.theme.radii.small} 
+  border-radius: ${(p) => p.theme.radii.small};
   background: ${(p) => p.theme.colors.whiteText};
   box-shadow: 2px 4px 9px 0px rgba(166, 141, 174, 0.28);
+  line-height: 1;
 
   @media ${(p) => p.theme.breakpoints.tablet.mediaFrom} {
     width: 688px;
@@ -31,7 +32,7 @@ export const Container = styled.div`
 
   @media ${(p) => p.theme.breakpoints.tablet.mediaFrom} {
     flex-wrap: wrap;
-    column-gap: 25px;
+    column-gap: 24px;
     max-height: 520px;
   }
 
@@ -45,29 +46,32 @@ export const Label = styled.label`
   display: inline-block;
 
   color: ${(p) => p.theme.colors.purpleText};
-  font-size: ${(p) => p.theme.fontSizes.m} 
+  font-size: ${(p) => p.theme.fontSizes.m};
   line-height: 1;
   letter-spacing: 0.04em;
-  margin-bottom: 8px;  
+  margin-bottom: 8px;
 `;
 
 export const Input = styled(Field)`
   display: block;
   width: 100%;
-  padding: 12px 16px;
-  height: 56px;
+  padding: 15px 36px 15px 16px;
 
   outline: none;
-  border-radius: ${(p) => p.theme.radii.small} 
-  border: 1px solid ${(p) => p.theme.colors.borderInput};
-  color: rgb(63, 63, 63);
+  border-radius: ${(p) => p.theme.radii.small};
+  border: 1px solid
+    ${(p) =>
+      p.$error ? p.theme.colors.borderInputFail : p.theme.colors.borderInput};
 
-  font-size: ${(p) => p.theme.fontSizes.m} 
+  color: ${(p) => p.theme.colors.inputText};
+
+  font-size: ${(p) => p.theme.fontSizes.m};
   font-family: inherit;
   line-height: 1.5;
   appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
+  transition: border-color 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 
   &:focus {
     border-color: ${(p) => p.theme.colors.accentText};
@@ -89,10 +93,12 @@ export const Textarea = styled(Input)`
 export const ErrorText = styled.p`
   position: absolute;
   color: ${(p) => p.theme.colors.borderInputFail};
-  font-size: ${(p) => p.theme.fontSizes.xs} 
+  font-size: ${(p) => p.theme.fontSizes.xs};
   right: 19px;
   margin-top: 4px;
+  line-height: 1.33;
 `;
+
 export const Wrapper = styled.div`
   position: relative;
 `;
@@ -128,4 +134,17 @@ export const Btn = styled.button`
   }
 `;
 
-export const StyledWrap = styled.div``;
+export const ClearBtn = styled.button`
+  position: absolute;
+  right: 12px;
+  top: 41px;
+  padding: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+`;
