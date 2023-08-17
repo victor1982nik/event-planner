@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Field } from "formik";
+import { IoMdClose } from "react-icons/io";
 
 export const StyledForm = styled.div`
   display: flex;
@@ -140,11 +141,20 @@ export const ClearBtn = styled.button`
   top: 41px;
   padding: 0;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  //display: flex;
+  //justify-content: center;
+  //align-items: center;
 
   background-color: transparent;
   cursor: pointer;
   border: none;
+`;
+
+export const CloseIcon = styled(IoMdClose)`
+  color: ${(p) =>
+    p.$error
+      ? p.theme.colors.iconInputFail
+      : !!p.$filled
+      ? p.theme.colors.iconInput
+      : p.theme.colors.disabledInput};
 `;

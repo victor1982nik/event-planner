@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Formik, Form, ErrorMessage, Field } from "formik";
 import * as Yup from "yup";
-import { CrossSmall } from "react-swm-icon-pack";
 import { toast } from "react-toastify";
 import { categories, priorities } from "../../assets/options";
 import InputSelect from "./InputSelect/InputSelect";
@@ -18,6 +17,7 @@ import {
   Wrapper,
   ErrorText,
   ClearBtn,
+  CloseIcon,
 } from "./EventForm.styled";
 
 function EventForm() {
@@ -92,10 +92,9 @@ function EventForm() {
                     handleChange({ target: { name: "title", value: "" } })
                   }
                 >
-                  <CrossSmall
-                    color={
-                      !!errors.title && touched.title ? "#FF2B77" : "#7B61FF"
-                    }
+                  <CloseIcon
+                    $error={errors.title && touched.title}
+                    $filled={values.title}
                   />
                 </ClearBtn>
 
@@ -114,7 +113,10 @@ function EventForm() {
                     handleChange({ target: { name: "description", value: "" } })
                   }
                 >
-                  <CrossSmall color="#7B61FF" />
+                  <CloseIcon
+                    $error={errors.description && touched.description}
+                    $filled={values.description}
+                  />
                 </ClearBtn>
                 <FormError name="description" />
               </Wrapper>
@@ -149,13 +151,12 @@ function EventForm() {
                 <ClearBtn
                   type="button"
                   onClick={() =>
-                    handleChange({ target: { name: "title", value: "" } })
+                    handleChange({ target: { name: "place", value: "" } })
                   }
                 >
-                  <CrossSmall
-                    color={
-                      !!errors.title && touched.title ? "#FF2B77" : "#7B61FF"
-                    }
+                  <CloseIcon
+                    $error={errors.place && touched.place}
+                    $filled={values.place}
                   />
                 </ClearBtn>
                 <FormError name="place" />
@@ -184,13 +185,12 @@ function EventForm() {
                 <ClearBtn
                   type="button"
                   onClick={() =>
-                    handleChange({ target: { name: "title", value: "" } })
+                    handleChange({ target: { name: "photo", value: "" } })
                   }
                 >
-                  <CrossSmall
-                    color={
-                      !!errors.title && touched.title ? "#FF2B77" : "#7B61FF"
-                    }
+                  <CloseIcon
+                    $error={errors.photo && touched.photo}
+                    $filled={values.photo}
                   />
                 </ClearBtn>
                 <FormError name="photo" />

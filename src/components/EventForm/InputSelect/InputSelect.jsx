@@ -14,7 +14,7 @@ function InputSelect({ field, form, options }) {
   const [isOpen, setIsOpen] = useState(false);
   const { name, value } = field;
 
-  //console.log(options);
+  //console.log(name);
 
   const togglePopup = () => {
     setIsOpen((prevState) => !prevState);
