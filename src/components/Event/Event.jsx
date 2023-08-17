@@ -22,7 +22,7 @@ export const Event = ({ event }) => {
   //console.log(event);
   const {
     id,
-    name,
+    title,
     description,
     category,
     priority,
@@ -64,8 +64,8 @@ export const Event = ({ event }) => {
   return (
     <>
       <Wrapper>
-        <Title>{name}</Title>
-        <Img src={photo} alt={name} />
+        <Title>{title}</Title>
+        <Img src={photo} alt={title} />
         <InfoWrapper>
           <Description>{description}</Description>
           <Info>

@@ -6,10 +6,6 @@ export const Select = styled.div`
   cursor: pointer;
 `;
 
-export const SelectHeader = styled.div`
-  position: relative;
-`;
-
 export const StyledIconDown = styled(ChevronSmallDown)`
   position: absolute;
   top: 50%;
@@ -34,7 +30,7 @@ export const Input = styled.div`
   border-radius: ${(p) => p.theme.radii.small};
   border: ${(p) => `${p.theme.borders.normal} ${p.theme.colors.borderInput}`};
   border-color: ${(p) => p.$error && p.theme.colors.form.borderInputFail};
-  color: ${(p) => p.theme.colors.inputTitle};
+  color: ${(p) => p.theme.colors.input};
   font-size: ${(p) => p.theme.fontSizes.m};
   font-family: inherit;
 
@@ -44,11 +40,13 @@ export const Input = styled.div`
 `;
 
 export const Text = styled.p`
-  opacity: ${(p) => !p.$select && "0.5"};
+  //opacity: ${(p) => (!p.$select ? "1" : "0.5")};
+
+  color: ${(p) => p.$isOpen && p.theme.colors.accentText};
 `;
 
-export const SelectBody = styled.div`
-  margin-top: 18px;
+export const SelectBody = styled.ul`
+  //margin-top: 18px;
   width: 100%;
   position: absolute;
   left: 0;
@@ -62,7 +60,7 @@ export const SelectBody = styled.div`
   z-index: 2;
 `;
 
-export const SelectItem = styled.div`
+export const SelectItem = styled.li`
   padding: 16px 0;
 
   &:not(:last-child) {

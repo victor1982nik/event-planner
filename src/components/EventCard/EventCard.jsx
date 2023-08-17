@@ -21,7 +21,7 @@ export const EventCard = ({ event }) => {
 
   const {
     id,
-    name,
+    title,
     description,
     category,
     priority,
@@ -65,7 +65,7 @@ export const EventCard = ({ event }) => {
       </Filters>
 
       <ImageContainer>
-        <Image src={photo} alt={name} />
+        <Image src={photo} alt={title} />
         <Info>
           <span>
             {dateConverted} at {time}
@@ -74,7 +74,7 @@ export const EventCard = ({ event }) => {
         </Info>
       </ImageContainer>
 
-      <Title>{name}</Title>
+      <Title>{title}</Title>
       {/* <Description style={{ paddingBottom: showMore ? "8px" : "16px" }}> */}
       <Description>{description}</Description>
 

@@ -163,12 +163,10 @@ function EventForm() {
               <Wrapper>
                 <Label htmlFor="category">Category</Label>
                 <Field name="category">
-                  {({ field, form, meta }) => (
+                  {({ field, form }) => (
                     <InputSelect
                       field={field}
                       form={form}
-                      meta={meta}
-                      label={"Category"}
                       options={categories}
                     />
                   )}
@@ -200,12 +198,10 @@ function EventForm() {
               <Wrapper>
                 <Label htmlFor="priority">Priority</Label>
                 <Field name="priority">
-                  {({ field, form, meta }) => (
+                  {({ field, form }) => (
                     <InputSelect
                       field={field}
                       form={form}
-                      meta={meta}
-                      label={"Priority"}
                       options={priorities}
                     />
                   )}
