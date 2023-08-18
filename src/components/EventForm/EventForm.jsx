@@ -124,12 +124,7 @@ function EventForm() {
                 <Label htmlFor="date">Select date</Label>
                 <Field id="date" name="date">
                   {({ field, form, meta }) => (
-                    <InputDate
-                      field={field}
-                      form={form}
-                      meta={meta}
-                      label={"Date"}
-                    />
+                    <InputDate field={field} form={form} />
                   )}
                 </Field>
                 <FormError name="date" />

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { capitalizeFirstLetter } from "../../../utils";
 import {
   Select,
   Input,
@@ -25,10 +25,7 @@ function InputSelect({ field, form, options }) {
     form.setFieldValue(field.name, obj.valueName);
   };
 
-  function capitalizeFirstLetter(str) {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-  }
-
+  //refactor - make semantic layout
   return (
     <Select>
       <Input onClick={togglePopup}>

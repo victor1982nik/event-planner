@@ -1,30 +1,21 @@
 import styled from "styled-components";
 import { ChevronSmallDown, ChevronSmallUp } from "react-swm-icon-pack";
 
-export const Wrap = styled.div`
-  position: relative;
-  cursor: pointer;
-`;
-
-export const WrapInput = styled.div`
-  position: relative;
-`;
-
 export const StyledIconDown = styled(ChevronSmallDown)`
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  //transform: translateY(-50%);
   right: 12px;
 `;
 
 export const StyledIconUp = styled(ChevronSmallUp)`
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  //transform: translateY(-50%);
   right: 12px;
 `;
 
-export const Input = styled.div`
+export const Input = styled.input`
   display: flex;
   align-items: center;
   width: 100%;
@@ -41,10 +32,6 @@ export const Input = styled.div`
   &:focus {
     border-color: ${(p) => p.theme.colors.borderInputAccent};
   }
-`;
-
-export const Text = styled.p`
-  opacity: ${(p) => !p.$select && "0.5"};
 `;
 
 export const Popup = styled.div`

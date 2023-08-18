@@ -1,86 +1,82 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
+import "./calendar.css";
 import { format } from "date-fns";
+import { capitalizeFirstLetter } from "../../../utils";
 
 import {
-  Wrap,
-  WrapInput,
   Input,
   StyledIconUp,
   StyledIconDown,
   Popup,
-  Text,
   BtnWrap,
   BtnCancel,
   BtnChoose,
 } from "./InputDate.styled";
 
-function InputDate({ field, form, options, label, meta, ...props }) {
-  const [value, setValue] = useState(null);
-  const [changeValue, setChangeValue] = useState(null);
+function InputDate({ field, form }) {
+  const [date, setDate] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
 
   const togglePopup = () => {
     setIsOpen((prevState) => !prevState);
   };
 
-  const onChange = (value) => {
-    setChangeValue(value);
+  const onChange = (data) => {
+    setDate(data);
   };
 
-  const onChoose = (value) => {
-    setValue(value);
-    console.log(form.values[field.name]);
-    console.log(value);
+  const onChoose = () => {
+    //setValue(value);
+    //console.log(form.values[field.name]);
+    console.log(date);
     togglePopup();
 
-    form.setFieldValue(field.name, value);
+    form.setFieldValue(field.name, date);
   };
 
   return (
-    <Wrap>
-      <WrapInput>
-        <Input onClick={togglePopup}>
-          <Text $select={value}>
-            {!isOpen && <>{value ? format(value, "dd.MM") : "Select"}</>}
-            {isOpen && `Select ${label}`}
-          </Text>
-        </Input>
-        {!isOpen ? (
-          <StyledIconDown onClick={togglePopup} color="#7B61FF" />
-        ) : (
-          <StyledIconUp onClick={togglePopup} color="#7B61FF" />
-        )}
-      </WrapInput>
+    <>
+      <Input
+        placeholder={
+          !isOpen
+            ? date
+              ? format(date, "dd.MM")
+              : "Select"
+            : `Select ${capitalizeFirstLetter(field.name)}`
+        }
+        onClick={togglePopup}
+        style={{ caretColor: "transparent" }}
+      />
+      {!isOpen ? (
+        <StyledIconDown onClick={togglePopup} color="#7B61FF" />
+      ) : (
+        <StyledIconUp onClick={togglePopup} color="#7B61FF" />
+      )}
 
       {isOpen && (
         <Popup>
           <Calendar
             calendarType="gregory"
             locale="en-EN"
+            showNeighboringMonth={false}
             next2Label={null}
             prev2Label={null}
-            showNeighboringMonth={false}
             onChange={onChange}
-            value={changeValue}
+            value={date}
           />
           <BtnWrap>
             <BtnCancel onClick={togglePopup} type="button">
               Cancel
             </BtnCancel>
-            <BtnChoose
-              onClick={() => {
-                onChoose(changeValue);
-              }}
-              type="button"
-            >
+            <BtnChoose onClick={onChoose} type="button">
               Choose date
             </BtnChoose>
           </BtnWrap>
         </Popup>
       )}
-    </Wrap>
+    </>
   );
 }
 
