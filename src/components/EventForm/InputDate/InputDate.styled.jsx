@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { ChevronSmallDown, ChevronSmallUp } from "react-swm-icon-pack";
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css";
 
 export const StyledIconDown = styled(ChevronSmallDown)`
   position: absolute;
@@ -28,9 +30,14 @@ export const Input = styled.input`
   color: ${(p) => p.theme.colors.inputText};
   font-size: ${(p) => p.theme.fontSizes.m};
   font-family: inherit;
+  caret-color: transparent;
 
   &:focus {
     border-color: ${(p) => p.theme.colors.borderInputAccent};
+  }
+  &::placeholder {
+    opacity: ${(p) => (p.$date ? "1" : p.$opened ? "1" : "0.5")};
+    color: ${(p) => (p.$opened ? p.theme.colors.borderInputAccent : "inherit")};
   }
 `;
 
@@ -93,5 +100,76 @@ export const BtnChoose = styled.button`
 
   &:hover {
     background-color: ${(p) => p.theme.colors.buttonAccent};
+  }
+`;
+
+export const StyledCalendar = styled(Calendar)`
+  border: none;
+  font-family: Poppins, sans-serif !important;
+  width: 100%;
+
+  button {
+    font-family: Poppins, sans-serif !important;
+  }
+
+  .react-calendar__navigation {
+    height: 100%;
+  }
+
+  .react-calendar__navigation__label__labelText {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.43;
+  }
+
+  .react-calendar__month-view__weekdays {
+    text-transform: none;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.33;
+  }
+
+  .react-calendar__tile--now {
+    background: inherit;
+    color: #7b61ff;
+  }
+
+  .react-calendar__tile--now {
+    color: #7b61ff !important;
+  }
+
+  .react-calendar__tile--now:enabled:hover,
+  .react-calendar__tile--now:enabled:focus {
+    color: #7b61ff !important;
+    background: inherit;
+  }
+
+  .react-calendar__tile--active {
+    background: #7b61ff !important;
+    color: #ffffff !important;
+  }
+
+  .react-calendar__tile.react-calendar__month-view__days__day {
+    color: #aca7c3;
+  }
+
+  .react-calendar__month-view__weekdays__weekday--weekend {
+    color: #ff2b77;
+  }
+
+  .react-calendar__month-view__days__day--weekend {
+    color: inherit;
+  }
+
+  .react-calendar__tile:enabled:hover,
+  .react-calendar__tile:enabled:focus {
+    background-color: transparent;
+    color: #3f3f3f;
+  }
+
+  :where(abbr[title]) {
+    text-decoration: none;
+    -webkit-text-decoration: none;
+    text-decoration: none;
   }
 `;

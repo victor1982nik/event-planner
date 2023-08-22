@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import { Formik, Form, ErrorMessage, Field } from "formik";
-import * as Yup from "yup";
 import { toast } from "react-toastify";
 import { categories, priorities } from "../../assets/options";
 import InputSelect from "./InputSelect/InputSelect";
 import InputDate from "./InputDate/InputDate";
 import { API } from "../../api";
+import { validationSchema } from "../schemas";
 
 import {
   StyledForm,
@@ -19,6 +19,7 @@ import {
   ClearBtn,
   CloseIcon,
 } from "./EventForm.styled";
+import InputTime from "./InputTime/InputTime";
 
 function EventForm() {
   const navigate = useNavigate();
@@ -42,30 +43,12 @@ function EventForm() {
     );
   };
 
-  const validationSchema = Yup.object({
-    title: Yup.string()
-      .required()
-      .matches(/^(?! )(?!-)[a-zA-Z\d\s-]+$/, "Invalid input"),
-    description: Yup.string().required(),
-    date: Yup.date().required(),
-    time: Yup.string()
-      .required()
-      .matches(/^([01]?[0-9]|2[0-3]):[0-5][0-9]$/, "Invalid input"),
-    place: Yup.string()
-      .required()
-      .matches(/^(?! )(?!-)[a-zA-Z\d\s-]+$/, "Invalid input"),
-    category: Yup.string().required(),
-    photo: Yup.string().url().required(),
-    priority: Yup.string().required(),
-  });
-
-  const handleSubmit = async (values, { resetForm }) => {
+  const handleSubmit = async (values) => {
     //console.log(values);
 
     await API.createEvent(values);
     toast.success("A new event has been created!");
     navigate("/");
-    // resetForm();
   };
 
   return (
@@ -131,7 +114,9 @@ function EventForm() {
               </Wrapper>
               <Wrapper>
                 <Label htmlFor="time">Select time</Label>
-                <Input placeholder="12:00" name="time" />
+                <Field id="time" name="time">
+                  {({ field, form }) => <InputTime field={field} form={form} />}
+                </Field>
                 <FormError name="time" />
               </Wrapper>
 

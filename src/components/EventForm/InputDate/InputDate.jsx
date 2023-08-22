@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Calendar from "react-calendar";
-import "react-calendar/dist/Calendar.css";
-import "./calendar.css";
+//import Calendar from "react-calendar";
+//import "react-calendar/dist/Calendar.css";
+//import "./calendar.css";
 import { format } from "date-fns";
 import { capitalizeFirstLetter } from "../../../utils";
 
@@ -13,6 +13,7 @@ import {
   BtnWrap,
   BtnCancel,
   BtnChoose,
+  StyledCalendar,
 } from "./InputDate.styled";
 
 function InputDate({ field, form }) {
@@ -30,24 +31,30 @@ function InputDate({ field, form }) {
   const onChoose = () => {
     //setValue(value);
     //console.log(form.values[field.name]);
-    console.log(date);
+    //console.log(date);
     togglePopup();
 
     form.setFieldValue(field.name, date);
   };
 
+  const handleCancelClick = () => {
+    togglePopup();
+    setDate(null);
+  };
+
   return (
     <>
       <Input
+        $date={date}
+        $opened={isOpen}
         placeholder={
           !isOpen
             ? date
               ? format(date, "dd.MM")
-              : "Select"
+              : "Input"
             : `Select ${capitalizeFirstLetter(field.name)}`
         }
         onClick={togglePopup}
-        style={{ caretColor: "transparent" }}
       />
       {!isOpen ? (
         <StyledIconDown onClick={togglePopup} color="#7B61FF" />
@@ -57,7 +64,7 @@ function InputDate({ field, form }) {
 
       {isOpen && (
         <Popup>
-          <Calendar
+          <StyledCalendar
             calendarType="gregory"
             locale="en-EN"
             showNeighboringMonth={false}
@@ -67,7 +74,7 @@ function InputDate({ field, form }) {
             value={date}
           />
           <BtnWrap>
-            <BtnCancel onClick={togglePopup} type="button">
+            <BtnCancel onClick={handleCancelClick} type="button">
               Cancel
             </BtnCancel>
             <BtnChoose onClick={onChoose} type="button">
