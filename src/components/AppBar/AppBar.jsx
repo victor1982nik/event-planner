@@ -33,8 +33,8 @@ export const AppBar = () => {
       <BtnWrapper>
         <StyledWrapper>
           <FilterCategory
-            $isMobile={isMobile}
-            $showCategory={showCategory}
+            isMobile={isMobile}
+            showCategory={showCategory}
             handleCategoryClick={onCategoryClick}
           />
           <Sorting

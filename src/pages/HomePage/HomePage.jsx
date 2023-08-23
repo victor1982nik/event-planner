@@ -25,6 +25,14 @@ const Home = () => {
     getEvents();
   }, []);
 
+  // const filterEvents = (filter) => {
+  //   if (filter)
+  //     return events.filter((event) => event.category = filter);
+  //   return events;
+  // }
+
+  // const filteredEvents = filterEvents(filter);
+
   return (
     <Main>
       <Wrapper>

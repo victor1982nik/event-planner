@@ -1,19 +1,19 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 24px;
-`;
+// export const Container = styled.div`
+//   display: flex;
+//   justify-content: flex-end;
+//   align-items: center;
+//   gap: 24px;
+// `;
 
-export const FilterContainer = styled.div`
-  position: relative;
+// export const FilterContainer = styled.div`
+//   position: relative;
 
-  @media ${(p) => p.theme.breakpoints.tablet.mediaFrom} {
-    min-width: 148px;
-  }
-`;
+//   @media ${(p) => p.theme.breakpoints.tablet.mediaFrom} {
+//     min-width: 148px;
+//   }
+// `;
 export const Wrapper = styled.div`
   position: relative;
 
@@ -21,8 +21,8 @@ export const Wrapper = styled.div`
     min-width: 148px;
   }
   ${(props) =>
-    props.showCategory &&
-    props.isMobile &&
+    props.$showCategory &&
+    props.$isMobile &&
     `  
     position: absolute;
     z-index: 20;    
@@ -37,7 +37,8 @@ export const Button = styled.button`
   border-radius: ${(p) => p.theme.radii.small};
   background-color: ${(p) => p.theme.colors.whiteText};
   box-shadow: 2px 4px 9px 0px rgba(166, 141, 174, 0.28);
-  color: ${(p) => p.theme.colors.button};
+  color: ${(p) =>
+    p.$showCategory ? p.theme.colors.button : p.theme.colors.bar};
 
   display: flex;
   align-items: center;
@@ -47,39 +48,32 @@ export const Button = styled.button`
   transition: color 350ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
-    color: ${(p) => p.theme.colors.bar};
+    color: ${(p) => p.theme.colors.button};
   }
 
   @media ${(p) => p.theme.breakpoints.tablet.mediaFrom} {
     width: 100%;
   }
 
-  ${(props) =>
-    props.showCategory &&
+  ${(p) =>
+    p.$showCategory &&
     `  
     border-radius: 8px 8px 0 0;
-    width: 100%;   
+    width: 100%;      
     `};
 `;
 
 export const BtnText = styled.span`
   display: none;
+  font-size: ${(p) => p.theme.fontSizes.m};
+  font-weight: ${(p) => p.theme.fontWeights.medium};
+  line-height: normal;
 
   @media ${(p) => p.theme.breakpoints.tablet.mediaFrom} {
     display: inline;
-    font-size: ${(p) => p.theme.fontSizes.m};
-    font-weight: ${(p) => p.theme.fontWeights.medium};
-    line-height: normal;
   }
 
-  ${(props) =>
-    props.showCategory &&
-    `  
-    display: inline;
-    font-size: ${(p) => p.theme.fontSizes.m};
-    font-weight: ${(p) => p.theme.fontWeights.medium};
-    line-height: normal;  
-    `};
+  display: ${(props) => props.$showCategory && "inline"};
 `;
 
 export const List = styled.ul`

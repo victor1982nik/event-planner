@@ -20,15 +20,16 @@ export const FilterCategory = ({
   const handleCategorySelect = (e) => {
     setCategory(e.target.innerText);
   };
+  console.log("showCategory", showCategory);
 
   return (
-    <Wrapper isMobile={isMobile} showCategory={showCategory}>
+    <Wrapper $isMobile={isMobile} $showCategory={showCategory}>
       <Button
-        showCategory={showCategory}
+        $showCategory={showCategory}
         type="button"
         onClick={handleCategoryClick}
       >
-        <BtnText showCategory={showCategory}>{category}</BtnText>
+        <BtnText $showCategory={showCategory}>{category}</BtnText>
         <CiFilter style={{ width: 24, height: 24 }} />
       </Button>
 
