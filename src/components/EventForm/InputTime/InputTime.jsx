@@ -28,10 +28,10 @@ function InputTime({ field, form }) {
         $time={time}
         $opened={isOpen}
         placeholder={
-          !isOpen
+          time
             ? time
-              ? time
-              : "Input"
+            : !isOpen
+            ? "Input"
             : `Select ${capitalizeFirstLetter(field.name)}`
         }
         onClick={togglePopup}

@@ -94,7 +94,8 @@ export const Button = styled.button`
   width: 108px;
   background-color: ${(props) => props.$backgroundColor};
   color: ${(props) => props.color};
-  border: 1px solid ${(props) => props.$borderColor || "#7B61FF"};
+  border: ${(props) =>
+    props.$borderColor ? `1px solid ${props.$borderColor}` : 0};
   padding: 8px 16px;
   border-radius: ${(p) => p.theme.radii.tiny};
   flex-shrink: 0;

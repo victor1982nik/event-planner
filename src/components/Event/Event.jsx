@@ -45,11 +45,11 @@ export const Event = ({ event }) => {
 
   const setColor = (priority) => {
     switch (priority) {
-      case "high":
+      case "High":
         return "#FF2B77";
-      case "medium":
+      case "Medium":
         return "#E2A300";
-      case "low":
+      case "Low":
         return "#6BD475";
       default:
         return;

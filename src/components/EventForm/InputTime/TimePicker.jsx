@@ -45,10 +45,11 @@ export const TimePicker = ({ onSelectTime }) => {
         spaceBetween={0}
         mousewheel={true}
         modules={[Mousewheel]}
-        initialSlide={3}
-        onSlideChange={(swiper) => {
-          handleHourChange(timeFormat(hours[swiper.activeIndex]));
-        }}
+        initialSlide={6}
+        loop={true}
+        onSlideChange={(swiper) =>
+          handleHourChange(timeFormat(hours[swiper.activeIndex]))
+        }
       >
         {hours.map((hour) => (
           <SwiperSlideStyled key={hour}>
@@ -65,7 +66,8 @@ export const TimePicker = ({ onSelectTime }) => {
         spaceBetween={0}
         mousewheel={true}
         modules={[Mousewheel]}
-        initialSlide={3}
+        initialSlide={1}
+        loop={true}
         onSlideChange={(swiper) => {
           handleMinuteChange(timeFormat(minutes[swiper.activeIndex]));
         }}

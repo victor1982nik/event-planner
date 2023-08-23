@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 import {
@@ -17,8 +16,6 @@ import {
 import { convertDateFromIso } from "../../utils/converDateFromIso";
 
 export const EventCard = ({ event }) => {
-  const [color, setColor] = useState(null);
-
   const {
     id,
     title,
@@ -31,21 +28,18 @@ export const EventCard = ({ event }) => {
     photo,
   } = event;
 
-  useEffect(() => {
+  const setColor = (priority) => {
     switch (priority) {
-      case "high":
-        setColor("#FF2B77");
-        break;
-      case "medium":
-        setColor("#E2A300");
-        break;
-      case "low":
-        setColor("#6BD475");
-        break;
+      case "High":
+        return "#FF2B77";
+      case "Medium":
+        return "#E2A300";
+      case "Low":
+        return "#6BD475";
       default:
         return;
     }
-  }, [priority]);
+  };
 
   const dateConvert = (date) => {
     const iso8601RegExp = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/;
@@ -61,7 +55,7 @@ export const EventCard = ({ event }) => {
     <Card>
       <Filters>
         <Category>{category}</Category>
-        <Priority style={{ color: color }}>{priority}</Priority>
+        <Priority style={{ color: setColor(priority) }}>{priority}</Priority>
       </Filters>
 
       <ImageContainer>
