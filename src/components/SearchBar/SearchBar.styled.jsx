@@ -11,6 +11,7 @@ export const Input = styled.input`
   font-weight: 300;
   border: none;
   outline: none;
+  line-height: 1;
 
   &::placeholder {
     font: inherit;

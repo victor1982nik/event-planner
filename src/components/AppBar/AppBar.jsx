@@ -12,7 +12,7 @@ import {
 } from "./AppBar.styled";
 import { FilterCategory } from "../FilterCategory/FilterCategory";
 
-export const AppBar = () => {
+export const AppBar = ({ onFilterChange }) => {
   const [showCategory, setShowCategory] = useState(false);
   const [showSortingOptions, setShowSortingOptions] = useState(false);
   const location = useLocation();
@@ -36,10 +36,11 @@ export const AppBar = () => {
             isMobile={isMobile}
             showCategory={showCategory}
             handleCategoryClick={onCategoryClick}
+            onFilterChange={onFilterChange}
           />
           <Sorting
-            $isMobile={isMobile}
-            $showSortingOptions={showSortingOptions}
+            isMobile={isMobile}
+            showSortingOptions={showSortingOptions}
             handleSortingClick={onSortingClick}
           />
         </StyledWrapper>

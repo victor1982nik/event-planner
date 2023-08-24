@@ -9,7 +9,7 @@ import {
 } from "./SharedLayout.styled";
 import { SearchBar } from "../SearchBar/SearchBar";
 
-export const SharedLayout = () => {
+export const SharedLayout = ({ changeQuery }) => {
   return (
     <>
       <Header>
@@ -20,7 +20,7 @@ export const SharedLayout = () => {
           <Lang>UK</Lang>
 
           <SearcBarWrapper>
-            <SearchBar />
+            <SearchBar changeQuery={changeQuery} />
           </SearcBarWrapper>
         </Container>
       </Header>

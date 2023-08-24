@@ -14,18 +14,22 @@ export const FilterCategory = ({
   isMobile,
   showCategory,
   handleCategoryClick,
+  onFilterChange,
 }) => {
   const [category, setCategory] = useState("Category");
 
   const handleCategorySelect = (e) => {
+    //console.log(e);
+    onFilterChange(e.target.innerText);
     setCategory(e.target.innerText);
   };
-  console.log("showCategory", showCategory);
+  //console.log("showCategory", showCategory);
 
   return (
     <Wrapper $isMobile={isMobile} $showCategory={showCategory}>
       <Button
         $showCategory={showCategory}
+        $category={category}
         type="button"
         onClick={handleCategoryClick}
       >

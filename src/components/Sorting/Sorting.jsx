@@ -11,13 +11,13 @@ export const Sorting = ({
   handleSortingClick,
 }) => {
   return (
-    <Wrapper isMobile={isMobile} showSortingOptions={showSortingOptions}>
+    <Wrapper $isMobile={isMobile} $showSortingOptions={showSortingOptions}>
       <Button
-        showSortingOptions={showSortingOptions}
+        $showSortingOptions={showSortingOptions}
         type="button"
         onClick={handleSortingClick}
       >
-        <BtnText showSortingOptions={showSortingOptions}>Sort by</BtnText>
+        <BtnText $showSortingOptions={showSortingOptions}>Sort by</BtnText>
         <LiaSlidersHSolid style={{ width: 24, height: 24 }} />
       </Button>
       {showSortingOptions && (

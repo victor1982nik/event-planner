@@ -34,11 +34,16 @@ export const Button = styled.button`
   padding: 16px;
 
   border: ${(p) => p.theme.borders.none};
+
   border-radius: ${(p) => p.theme.radii.small};
   background-color: ${(p) => p.theme.colors.whiteText};
   box-shadow: 2px 4px 9px 0px rgba(166, 141, 174, 0.28);
   color: ${(p) =>
-    p.$showCategory ? p.theme.colors.button : p.theme.colors.bar};
+    p.$showCategory
+      ? p.theme.colors.button
+      : p.$category !== "Category"
+      ? p.theme.colors.button
+      : p.theme.colors.bar};
 
   display: flex;
   align-items: center;
@@ -73,7 +78,8 @@ export const BtnText = styled.span`
     display: inline;
   }
 
-  display: ${(props) => props.$showCategory && "inline"};
+  display: ${(p) => p.$showCategory && "inline"};
+  // color: ${(p) => p.$category !== "Category" && p.theme.colors.button};
 `;
 
 export const List = styled.ul`

@@ -1,23 +1,14 @@
 import styled from "styled-components";
 
 export const BtnText = styled.span`
-  display: none;
+  display: ${(props) => (props.$showSortingOptions ? "inline" : "none")};
+  font-size: 16px;
+  font-weight: 500;
+  line-height: normal;
 
   @media screen and (min-width: 768px) {
     display: inline;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: normal;
   }
-
-  ${(props) =>
-    props.showSortingOptions &&
-    `  
-    display: inline;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: normal;
-    `};
 `;
 
 export const Button = styled.button`
@@ -47,7 +38,7 @@ export const Button = styled.button`
   }
 
   ${(props) =>
-    props.showSortingOptions &&
+    props.$showSortingOptions &&
     `  
     border-radius: 8px 8px 0 0;
     width: 100%;   
@@ -61,8 +52,8 @@ export const Wrapper = styled.div`
     min-width: 148px;
   }
   ${(props) =>
-    props.showSortingOptions &&
-    props.isMobile &&
+    props.$showSortingOptions &&
+    props.$isMobile &&
     `  
     position: absolute;
     z-index: 20;    
