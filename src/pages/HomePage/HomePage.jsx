@@ -29,13 +29,27 @@ const Home = ({ query }) => {
     setFilter(data);
   };
 
-  const filterEvents = (filter) => {
-    if (filter) return events.filter((event) => event.category === filter);
+  const filterByKeyword = (search) => {
+    if (search) {
+      return events.filter(
+        (event) =>
+          event.title.includes(search) || event.description.includes(search)
+      );
+    }
     return events;
+  };
+  const filteredEventsByKeyword = filterByKeyword(query);
+
+  const filterEvents = (filter) => {
+    if (filter)
+      return filteredEventsByKeyword.filter(
+        (event) => event.category === filter
+      );
+    return filteredEventsByKeyword;
   };
 
   const filteredEvents = filterEvents(filter);
-  console.log(query);
+  //console.log(query);
 
   return (
     <Main>

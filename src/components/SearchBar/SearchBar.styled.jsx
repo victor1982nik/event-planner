@@ -1,22 +1,25 @@
 import styled from "styled-components";
+import { IoMdClose } from "react-icons/io";
 
 export const Input = styled.input`
   display: inline-block;
   width: 100%;
   padding-left: 4px;
-  padding-right: 4px;
+  padding-right: 14px;
 
   font: inherit;
-  font-size: 14px;
-  font-weight: 300;
+  font-size: ${(p) => p.theme.fontSizes.s};
+  font-weight: ${(p) => p.theme.fontWeights.regular};
   border: none;
   outline: none;
   line-height: 1;
 
   &::placeholder {
     font: inherit;
-    font-size: 18px;
+    font-size: ${(p) => p.theme.fontSizes.s};
   }
+  color: ${(p) =>
+    p.$search ? p.theme.colors.button : p.theme.colors.inputPlaceholderSearch};
 `;
 
 export const Button = styled.button`
@@ -42,27 +45,21 @@ export const Form = styled.form`
   width: 100%;
   max-width: 600px;
   background-color: ${(p) => p.theme.colors.whiteText};
-  border-radius: 4px;
+  border-radius: ${(p) => p.theme.radii.tiny};
   overflow: hidden;
 `;
-/*
-export const Search = styled.div`
-  top: 0;
-  left: 0;
-  position: sticky;
-  z-index: 100;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 64px;
-  padding-right: 24px;
-  padding-left: 24px;
-  padding-top: 12px;
-  padding-bottom: 12px;
 
-  color: ${(p) => p.theme.colors.whiteText};
-  background-color: #3f51b5;
-  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
-    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+export const ClearBtn = styled.button`
+  position: absolute;
+  right: 12px;
+  top: 16px;
+  padding: 0;
+
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
 `;
-*/
+
+export const CloseIcon = styled(IoMdClose)`
+  color: ${(p) => p.theme.colors.button};
+`;
