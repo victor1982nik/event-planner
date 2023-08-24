@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { MdArrowUpward } from "react-icons/md";
 
 export const BtnText = styled.span`
   display: ${(props) => (props.$showSortingOptions ? "inline" : "none")};
@@ -59,4 +60,13 @@ export const Wrapper = styled.div`
     z-index: 20;    
     min-width: 148px;    
     `};
+`;
+
+export const MdArrowUpwardStyled = styled(MdArrowUpward)`
+  width: 18px;
+  height: 18px;
+`;
+
+export const RotatedArrow = styled(MdArrowUpwardStyled)`
+  transform: rotate(180deg);
 `;

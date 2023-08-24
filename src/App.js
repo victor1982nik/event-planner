@@ -15,7 +15,7 @@ function App() {
   const handleChangeQuery = (data) => {
     setQuery(data);
   };
-  console.log(query);
+  //console.log(query);
   return (
     <>
       <Routes>

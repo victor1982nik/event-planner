@@ -1,5 +1,5 @@
 import { categories } from "./categories";
 import { priorities } from "./priorities";
-import { sortingOpt } from "./sorting";
+import { sortingOpt, sortingOptNew } from "./sorting";
 
-export { categories, priorities, sortingOpt };
+export { categories, priorities, sortingOpt, sortingOptNew };

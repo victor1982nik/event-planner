@@ -3,12 +3,13 @@ import { Main, Title, Wrapper, CardList } from "./HomePage.styled";
 import { EventCard } from "../../components/EventCard/EventCard";
 import { useState, useEffect } from "react";
 import { API } from "../../api";
+import { sortingOptNew, priorities } from "../../assets/options";
 
 const Home = ({ query }) => {
   const [events, setEvents] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [filter, setFilter] = useState("");
-  //const [query, setQuery] = useState("");
+  const [sorting, setSorting] = useState("");
 
   useEffect(() => {
     const getEvents = async () => {
@@ -27,6 +28,10 @@ const Home = ({ query }) => {
 
   const handleFilterChange = (data) => {
     setFilter(data);
+  };
+
+  const handleSortingChange = (option) => {
+    setSorting(option);
   };
 
   const filterByKeyword = (search) => {
@@ -49,12 +54,42 @@ const Home = ({ query }) => {
   };
 
   const filteredEvents = filterEvents(filter);
-  //console.log(query);
+
+  const sortEvents = (sorting) => {
+    if (!sorting) {
+      return filteredEvents;
+    }
+    switch (sorting) {
+      //by name
+      case sortingOptNew[0].value:
+        return filteredEvents.sort((a, b) => a.title.localeCompare(b.title));
+      case sortingOptNew[1].value:
+        return filteredEvents.sort((a, b) => b.title.localeCompare(a.title));
+      //by data
+      case sortingOptNew[2].value:
+        break;
+      case sortingOptNew[3].value:
+        break;
+      //by priority
+      case sortingOptNew[4].value:
+        break;
+      case sortingOptNew[5].value:
+        break;
+
+      default:
+        return filteredEvents;
+    }
+  };
+  const sortedEvents = sortEvents(sorting);
+  //console.log(sorting);
 
   return (
     <Main>
       <Wrapper>
-        <AppBar onFilterChange={handleFilterChange} />
+        <AppBar
+          onFilterChange={handleFilterChange}
+          onSortingChange={handleSortingChange}
+        />
         <Title>My events</Title>
       </Wrapper>
       {isLoading && <div>Loading...</div>}
