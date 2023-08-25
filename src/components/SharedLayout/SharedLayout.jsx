@@ -1,4 +1,4 @@
-//import { Suspense } from "react";
+import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
 import {
   Link,
@@ -25,9 +25,9 @@ export const SharedLayout = ({ changeQuery }) => {
           </SearcBarWrapper>
         </Container>
       </Header>
-      {/* <Suspense fallback={<div>Loading page...</div>}>
-          <Outlet />
-        </Suspense> */}
+      <Suspense fallback={<div>Loading page...</div>}>
+        <Outlet />
+      </Suspense>
       <Outlet />
     </>
   );

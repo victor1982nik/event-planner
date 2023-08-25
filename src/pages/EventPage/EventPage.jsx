@@ -1,10 +1,9 @@
 import { useLocation, useParams } from "react-router-dom";
-import { BackLink } from "../../components/BackLink/BackLink";
-import { Main } from "./EventPage.styled";
-import { Event } from "../../components/Event/Event";
-import { LinkText } from "./EventPage.styled";
-import { API } from "../../api";
 import { useState, useEffect } from "react";
+import { BackLink } from "../../components/BackLink/BackLink";
+import { Main, LinkText } from "./EventPage.styled";
+import { Event } from "../../components/Event/Event";
+import { API } from "../../api";
 
 const EventPage = () => {
   const [event, setEvent] = useState(null);
@@ -27,7 +26,6 @@ const EventPage = () => {
     getEvent(id);
   }, [id]);
 
-  //console.log("event", event);
   const backLinkHref = location.state?.from ?? "/";
   return (
     <>
