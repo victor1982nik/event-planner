@@ -3,7 +3,7 @@ Event Planner
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 Live page
-The live page for this project is available via the following link: https://victor1982.github.io/event-planner/
+The live page for this project is available via the following link: https://victor1982nik.github.io/event-planner/
 
 The website currently allows:
 browsing through available events

@@ -34,13 +34,14 @@ export const Event = ({ event }) => {
   //console.log(name, description, category, priority, place, date, time, photo);
 
   const formatTime = (date, time) => {
-    const [hours] = time.split(":").map(Number);
+    //const [hours] = time.split(":").map(Number);
     const iso8601RegExp = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/;
     if (iso8601RegExp.test(date)) {
       date = convertDateFromIso(date);
     }
-    const formattedDateTime = `${date} at ${time} `;
-    return hours > 12 ? formattedDateTime + "pm" : formattedDateTime + "am";
+    //const formattedDateTime = `${date} at ${time} `;
+    return `${date} at ${time} `;
+    //return hours > 12 ? formattedDateTime + "pm" : formattedDateTime + "am";
   };
 
   const setColor = (priority) => {

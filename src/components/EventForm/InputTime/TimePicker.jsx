@@ -13,7 +13,8 @@ export const TimePicker = ({ onSelectTime }) => {
   const [selectedMinute, setSelectedMinute] = useState(0);
   const [selectedPeriod, setSelectedPeriod] = useState("AM");
 
-  const hours = Array.from({ length: 12 }, (_, index) => index + 1);
+  const hours = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  //const hours = Array.from({ length: 12 }, (_, index) => index + 1);
   const minutes = Array.from({ length: 60 }, (_, index) => index);
   const periods = ["AM", "PM"];
 
@@ -46,7 +47,6 @@ export const TimePicker = ({ onSelectTime }) => {
         mousewheel={true}
         modules={[Mousewheel]}
         initialSlide={6}
-        loop={true}
         onSlideChange={(swiper) =>
           handleHourChange(timeFormat(hours[swiper.activeIndex]))
         }
@@ -67,7 +67,6 @@ export const TimePicker = ({ onSelectTime }) => {
         mousewheel={true}
         modules={[Mousewheel]}
         initialSlide={1}
-        loop={true}
         onSlideChange={(swiper) => {
           handleMinuteChange(timeFormat(minutes[swiper.activeIndex]));
         }}

@@ -9,6 +9,7 @@ import { SharedLayout } from "./components/SharedLayout/SharedLayout";
 //import CreateEvent from "./pages/CreateEventPage/CreateEventPage";
 //import EventPage from "./pages/EventPage/EventPage";
 //import { Test } from "./components/Test/Test";
+//const Test = lazy(() => import("./components/Test/Test"));
 const Home = lazy(() => import("./pages/HomePage/HomePage"));
 const EventPage = lazy(() => import("./pages/EventPage/EventPage"));
 const CreateEvent = lazy(() =>

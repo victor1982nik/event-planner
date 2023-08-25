@@ -5,7 +5,7 @@ import {
   Input,
   StyledIconUp,
   StyledIconDown,
-  InputWrapper,
+  //InputWrapper,
 } from "./InputTime.styled";
 import { TimePicker } from "./TimePicker";
 
@@ -43,9 +43,9 @@ function InputTime({ field, form }) {
       )}
 
       {isOpen && (
-        <InputWrapper>
-          <TimePicker onSelectTime={onChange} />
-        </InputWrapper>
+        // <InputWrapper>
+        <TimePicker onSelectTime={onChange} />
+        // </InputWrapper>
       )}
     </>
   );

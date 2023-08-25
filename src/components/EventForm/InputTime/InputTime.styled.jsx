@@ -41,8 +41,8 @@ export const Input = styled.input`
 `;
 
 export const InputWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+  //display: flex;
+  //flex-direction: column;
   position: relative;
 `;
 
