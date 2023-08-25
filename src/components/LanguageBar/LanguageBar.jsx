@@ -11,7 +11,7 @@ export const LanguageBar = () => {
 
   return (
     <>
-      <label for="lang" />
+      <label htmlFor="lang" />
       <Select name="lang" id="lang">
         <option value="UK">EN</option>
         <option value="UA">UA</option>

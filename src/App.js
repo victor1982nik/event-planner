@@ -31,8 +31,8 @@ function App() {
           element={<SharedLayout changeQuery={handleChangeQuery} />}
         >
           <Route index element={<Home query={query} />} />
-          <Route path="/create" element={<CreateEvent />} />
-          <Route path="/details/:id" element={<EventPage />} />
+          <Route path="create" element={<CreateEvent />} />
+          <Route path="details/:id" element={<EventPage />} />
           {/* <Route path="/test" element={<Test />} /> */}
         </Route>
       </Routes>
