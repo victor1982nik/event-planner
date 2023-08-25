@@ -5,9 +5,10 @@ import {
   Header,
   Container,
   SearcBarWrapper,
-  Lang,
+  //Lang,
 } from "./SharedLayout.styled";
 import { SearchBar } from "../SearchBar/SearchBar";
+import { LanguageBar } from "../LanguageBar/LanguageBar";
 
 export const SharedLayout = ({ changeQuery }) => {
   return (
@@ -17,7 +18,7 @@ export const SharedLayout = ({ changeQuery }) => {
           <Link to="/" end>
             Event Planner
           </Link>
-          <Lang>UK</Lang>
+          <LanguageBar />
 
           <SearcBarWrapper>
             <SearchBar changeQuery={changeQuery} />

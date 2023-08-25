@@ -3,7 +3,7 @@ import { Main, Title, Wrapper, CardList } from "./HomePage.styled";
 import { EventCard } from "../../components/EventCard/EventCard";
 import { useState, useEffect } from "react";
 import { API } from "../../api";
-import { sortingOptNew, priorities } from "../../assets/options";
+import { sortingOptNew } from "../../assets/options";
 
 const Home = ({ query }) => {
   const [events, setEvents] = useState([]);
@@ -43,6 +43,7 @@ const Home = ({ query }) => {
     }
     return events;
   };
+
   const filteredEventsByKeyword = filterByKeyword(query);
 
   const filterEvents = (filter) => {
@@ -53,31 +54,61 @@ const Home = ({ query }) => {
     return filteredEventsByKeyword;
   };
 
-  const filteredEvents = filterEvents(filter);
+  const filteredEv = filterEvents(filter);
+
+  function getPriorityValue(priority) {
+    switch (priority) {
+      case "High":
+        return 3;
+      case "Medium":
+        return 2;
+      case "Low":
+        return 1;
+      default:
+        return 0;
+    }
+  }
 
   const sortEvents = (sorting) => {
     if (!sorting) {
-      return filteredEvents;
+      return filteredEv;
     }
     switch (sorting) {
       //by name
       case sortingOptNew[0].value:
-        return filteredEvents.sort((a, b) => a.title.localeCompare(b.title));
+        return [...filteredEv].sort((a, b) => a.title.localeCompare(b.title));
       case sortingOptNew[1].value:
-        return filteredEvents.sort((a, b) => b.title.localeCompare(a.title));
+        return [...filteredEv].sort((a, b) => b.title.localeCompare(a.title));
       //by data
       case sortingOptNew[2].value:
-        break;
+        return [...filteredEv].sort((a, b) => {
+          const firstDate = new Date(a.date);
+          const secondDate = new Date(b.date);
+          return firstDate - secondDate;
+        });
       case sortingOptNew[3].value:
-        break;
+        return [...filteredEv].sort((a, b) => {
+          const firstDate = new Date(a.date);
+          const secondDate = new Date(b.date);
+          return secondDate - firstDate;
+        });
       //by priority
       case sortingOptNew[4].value:
-        break;
+        return [...filteredEv].sort((a, b) => {
+          const first = getPriorityValue(a.priority);
+          const second = getPriorityValue(b.priority);
+          return first - second;
+        });
+
       case sortingOptNew[5].value:
-        break;
+        return [...filteredEv].sort((a, b) => {
+          const first = getPriorityValue(a.priority);
+          const second = getPriorityValue(b.priority);
+          return second - first;
+        });
 
       default:
-        return filteredEvents;
+        return filteredEv;
     }
   };
   const sortedEvents = sortEvents(sorting);
@@ -94,8 +125,8 @@ const Home = ({ query }) => {
       </Wrapper>
       {isLoading && <div>Loading...</div>}
       <CardList>
-        {filteredEvents.length > 0 &&
-          filteredEvents.map((event) => (
+        {sortedEvents.length > 0 &&
+          sortedEvents.map((event) => (
             <li key={event.id}>
               <EventCard event={event} />
             </li>
