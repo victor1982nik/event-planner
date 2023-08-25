@@ -28,7 +28,6 @@ export const SharedLayout = ({ changeQuery }) => {
       <Suspense fallback={<div>Loading page...</div>}>
         <Outlet />
       </Suspense>
-      <Outlet />
     </>
   );
 };
