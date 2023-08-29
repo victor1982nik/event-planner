@@ -1,20 +1,15 @@
 import { useState } from "react";
 import { Mousewheel } from "swiper/modules";
-import {
-  Selected,
-  SwiperSlideStyled,
-  SwiperStyled,
-  TimePickerContainer,
-  VisionLine,
-} from "./InputTime.styled";
+import { Swiper, SwiperSlide } from "swiper/react";
+import styles from "./TimePicker.module.css";
+import { Selected, TimePickerContainer, VisionLine } from "./InputTime.styled";
 
 export const TimePicker = ({ onSelectTime }) => {
   const [selectedHour, setSelectedHour] = useState(12);
-  const [selectedMinute, setSelectedMinute] = useState(0);
+  const [selectedMinute, setSelectedMinute] = useState(15);
   const [selectedPeriod, setSelectedPeriod] = useState("AM");
 
-  const hours = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-  //const hours = Array.from({ length: 12 }, (_, index) => index + 1);
+  const hours = Array.from({ length: 12 }, (_, index) => index + 1);
   const minutes = Array.from({ length: 60 }, (_, index) => index);
   const periods = ["AM", "PM"];
 
@@ -34,71 +29,76 @@ export const TimePicker = ({ onSelectTime }) => {
     return time < 10 ? `0${time}` : time;
   };
 
-  const time = `${selectedHour}:${selectedMinute} ${selectedPeriod}`;
+  const handleSelect = () => {
+    const time = `${selectedHour}:${selectedMinute} ${selectedPeriod}`;
+    onSelectTime(time);
+  };
+
+  console.log(`${selectedHour}:${selectedMinute} ${selectedPeriod}`);
 
   return (
-    <TimePickerContainer onClick={() => onSelectTime(time)}>
+    <TimePickerContainer onClick={handleSelect}>
       <VisionLine></VisionLine>
       {/* hour */}
-      <SwiperStyled
+      <Swiper
         direction={"vertical"}
-        slidesPerView={1}
+        className={styles.swiper}
         spaceBetween={0}
         mousewheel={true}
         modules={[Mousewheel]}
-        initialSlide={6}
+        initialSlide={8}
         onSlideChange={(swiper) =>
           handleHourChange(timeFormat(hours[swiper.activeIndex]))
         }
       >
         {hours.map((hour) => (
-          <SwiperSlideStyled key={hour}>
+          <SwiperSlide key={hour} className={styles.swiperSlide}>
             {({ isActive }) => (
               <Selected $isActive={isActive}>{timeFormat(hour)}</Selected>
             )}
-          </SwiperSlideStyled>
+          </SwiperSlide>
         ))}
-      </SwiperStyled>
+      </Swiper>
       {/* minute */}
-      <SwiperStyled
+      <Swiper
         direction={"vertical"}
-        slidesPerView={1}
+        className={styles.swiper}
         spaceBetween={0}
         mousewheel={true}
         modules={[Mousewheel]}
-        initialSlide={1}
+        initialSlide={15}
         onSlideChange={(swiper) => {
           handleMinuteChange(timeFormat(minutes[swiper.activeIndex]));
         }}
       >
         {minutes.map((minute) => (
-          <SwiperSlideStyled key={minute}>
+          <SwiperSlide className={styles.swiperSlide} key={minute}>
             {({ isActive }) => (
               <Selected $isActive={isActive}>{timeFormat(minute)}</Selected>
             )}
-          </SwiperSlideStyled>
+          </SwiperSlide>
         ))}
-      </SwiperStyled>
+      </Swiper>
       {/* period */}
-      <SwiperStyled
+      <Swiper
         direction={"vertical"}
-        slidesPerView={1}
+        className={styles.swiper}
+        initialSlide={1}
         spaceBetween={0}
         mousewheel={true}
         modules={[Mousewheel]}
-        initialSlide={3}
         onSlideChange={(swiper) => {
           handlePeriodChange(periods[swiper.activeIndex]);
         }}
       >
         {periods.map((period) => (
-          <SwiperSlideStyled key={period}>
+          <SwiperSlide className={styles.swiperSlide} key={period}>
             {({ isActive }) => (
               <Selected $isActive={isActive}>{period}</Selected>
             )}
-          </SwiperSlideStyled>
+          </SwiperSlide>
         ))}
-      </SwiperStyled>
+      </Swiper>
     </TimePickerContainer>
   );
 };

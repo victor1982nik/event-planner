@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { ChevronSmallDown, ChevronSmallUp } from "react-swm-icon-pack";
-import { Swiper, SwiperSlide } from "swiper/react";
+//import { Swiper, SwiperSlide } from "swiper/react";
 
 export const StyledIconDown = styled(ChevronSmallDown)`
   position: absolute;
@@ -103,28 +103,28 @@ export const VisionLine = styled.div`
     }
   }
 `;
-export const SwiperStyled = styled(Swiper)`
-  width: 73px;
-  height: 48px;
-`;
+// export const SwiperStyled = styled(Swiper)`
+//   width: 73px;
+//   height: 48px;
+// `;
 
-export const SwiperSlideStyled = styled(SwiperSlide)`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
+// export const SwiperSlideStyled = styled(SwiperSlide)`
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//   flex-shrink: 0;
 
-  width: 73px;
-  padding: 12px 16px;
-  gap: 4px;
+//   width: 73px;
+//   padding: 12px 16px;
+//   gap: 4px;
 
-  cursor: pointer;
+//   cursor: pointer;
 
-  @media screen and (max-width: 768px) {
-    width: 40px;
-  }
-`;
+//   @media screen and (max-width: 768px) {
+//     width: 40px;
+//   }
+// `;
 
 export const Selected = styled.div`
   color: ${(p) => p.$isActive && "#3f3f3f"};

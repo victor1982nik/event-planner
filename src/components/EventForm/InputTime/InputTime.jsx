@@ -19,6 +19,7 @@ function InputTime({ field, form }) {
 
   const onChange = (time) => {
     setTime(time);
+    console.log(time);
     form.setFieldValue(field.name, time);
   };
 
@@ -27,6 +28,8 @@ function InputTime({ field, form }) {
       <Input
         $time={time}
         $opened={isOpen}
+        id="time"
+        name="time"
         placeholder={
           time
             ? time

@@ -71,6 +71,7 @@ function EventForm() {
                 />
                 <ClearBtn
                   type="button"
+                  title="clear field"
                   onClick={() =>
                     handleChange({ target: { name: "title", value: "" } })
                   }
@@ -89,9 +90,11 @@ function EventForm() {
                   placeholder="Input"
                   component="textarea"
                   name="description"
+                  id="description"
                 />
                 <ClearBtn
                   type="button"
+                  title="clear field"
                   onClick={() =>
                     handleChange({ target: { name: "description", value: "" } })
                   }
@@ -105,7 +108,7 @@ function EventForm() {
               </Wrapper>
               <Wrapper>
                 <Label htmlFor="date">Select date</Label>
-                <Field id="date" name="date">
+                <Field name="date">
                   {({ field, form, meta }) => (
                     <InputDate field={field} form={form} />
                   )}
@@ -114,7 +117,7 @@ function EventForm() {
               </Wrapper>
               <Wrapper>
                 <Label htmlFor="time">Select time</Label>
-                <Field id="time" name="time">
+                <Field name="time">
                   {({ field, form }) => <InputTime field={field} form={form} />}
                 </Field>
                 <FormError name="time" />
@@ -130,6 +133,7 @@ function EventForm() {
                 />
                 <ClearBtn
                   type="button"
+                  title="clear field"
                   onClick={() =>
                     handleChange({ target: { name: "place", value: "" } })
                   }
@@ -143,7 +147,7 @@ function EventForm() {
               </Wrapper>
               <Wrapper>
                 <Label htmlFor="category">Category</Label>
-                <Field name="category">
+                <Field name="category" id="category">
                   {({ field, form }) => (
                     <InputSelect
                       field={field}
@@ -164,6 +168,7 @@ function EventForm() {
                 />
                 <ClearBtn
                   type="button"
+                  title="clear field"
                   onClick={() =>
                     handleChange({ target: { name: "photo", value: "" } })
                   }
@@ -177,7 +182,7 @@ function EventForm() {
               </Wrapper>
               <Wrapper>
                 <Label htmlFor="priority">Priority</Label>
-                <Field name="priority">
+                <Field id="priority" name="priority">
                   {({ field, form }) => (
                     <InputSelect
                       field={field}

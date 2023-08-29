@@ -47,6 +47,8 @@ function InputDate({ field, form }) {
       <Input
         $date={date}
         $opened={isOpen}
+        id="date"
+        name="date"
         placeholder={
           !isOpen
             ? date
